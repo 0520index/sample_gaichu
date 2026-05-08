@@ -13,7 +13,7 @@
   <meta property="og:description" content="レスキュー侍は害虫駆除のプロ集団。24時間受付、見積もり0円、最短当日お伺い。ゴキブリ・シロアリ・アリ・ハチなど幅広く対応。">
   <meta property="og:url" content="https://rescue-samurai.com/">
   <meta property="og:image" content="https://rescue-samurai.com/images/og-image.webp">
-  <meta property="og:site_name" content="害鳥レスキュー侍">
+  <meta property="og:site_name" content="害虫レスキュー侍">
   <meta property="og:locale" content="ja_JP">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="害虫駆除・害虫対策ならレスキュー侍｜最短即日対応・見積もり無料">
@@ -33,7 +33,7 @@
       <div class="header-logo-area">
         <div class="logo">
           <a href="/" class="logo-main-link">
-            <img src="images/logo-title.svg?v=1.04" alt="害鳥レスキュー侍｜関東の害鳥駆除・鳥害対策（ハト・ムクドリ等）" width="500" height="136"
+            <img src="images/logo-title.svg?v=1.04" alt="害虫レスキュー侍｜関東の害虫駆除・害虫対策（ハト・ムクドリ等）" width="500" height="136"
               fetchpriority="high">
           </a>
 
@@ -43,6 +43,42 @@
           </a>
         </div>
       </div>
+
+      <button class="menu-btn" id="menu-btn" aria-label="メニューを開く">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="sp-nav" id="sp-nav">
+        <ul>
+          <li><a href="#">Top</a></li>
+          <li class="has-child">
+            <a class="parent-link">対応地域</a>
+            <ul class="sub-menu">
+              <li><a href="#">東京都</a></li>
+              <li><a href="#">神奈川県</a></li>
+              <li><a href="#">埼玉県</a></li>
+              <li><a href="#">千葉県</a></li>
+            </ul>
+          </li>
+          <li class="has-child">
+            <a class="parent-link">害虫の種類</a>
+            <ul class="sub-menu">
+              <li><a href="#">ゴキブリ対策</a></li>
+              <li><a href="#">シロアリ対策</a></li>
+              <li><a href="#">アリ対策</a></li>
+              <li><a href="#">ハチ対策</a></li>
+              <li><a href="#">ダニ・ノミ対策</a></li>
+              <li><a href="#">その他害虫対策</a></li>
+            </ul>
+          </li>
+          <li><a href="#onayami">被害例</a></li>
+          <li><a href="#comparison">選ばれる理由</a></li>
+          <li><a href="#faq">よくある質問</a></li>
+          <li><a href="#contact" class="sp-nav-cta">お問い合わせフォーム</a></li>
+        </ul>
+      </div>
+      <div class="nav-overlay" id="nav-overlay"></div>
+
     </header>
 
     <main>
@@ -86,7 +122,7 @@
           <span class="btn__icon" aria-hidden="true">📞</span>
           <span class="btn__label">
             <span class="btn__sub">今すぐ無料相談</span>
-            <span class="btn__tel">0120-123-456</span>
+            <span class="btn__tel">050-8896-4221</span>
           </span>
         </a>
         <a class="btn btn--line" href="#contact-form">Web / LINE で相談</a>
@@ -210,7 +246,7 @@
           <span class="btn__icon" aria-hidden="true">📞</span>
           <span class="btn__label">
             <span class="btn__sub">まずはお電話ください</span>
-            <span class="btn__tel">0120-123-456</span>
+            <span class="btn__tel">050-8896-4221</span>
           </span>
         </a>
         <a class="btn btn--line" href="#contact-form">Web / LINE で相談</a>
@@ -316,12 +352,73 @@
           <span class="btn__icon" aria-hidden="true">📞</span>
           <span class="btn__label">
             <span class="btn__sub">フリーダイヤル</span>
-            <span class="btn__tel">0120-123-456</span>
+            <span class="btn__tel">050-8896-4221</span>
           </span>
         </a>
         <a class="btn btn--line btn--block" href="#">LINE 公式</a>
-        <p class="contact-banner__note">050-8896-4221</p>
+        <div class="contact-form-container">
+          <h3 class="form-title">無料相談窓口</h3>
+          <form action="confirm.php" method="post" class="contact-form h-adr">
+            <span class="p-country-name" style="display:none;">Japan</span>
+            <div class="form-group">
+              <label for="name">お名前 <span class="required">必須</span></label>
+              <input type="text" id="name" name="name" placeholder="例：害虫 太郎" required>
+            </div>
+            <div class="form-group">
+              <label for="tel">お電話番号 <span class="required">必須</span></label>
+              <input id="tel" type="tel" pattern="\d{2,4}-?\d{2,4}-?\d{3,4}" name="tel" placeholder="例：090-1234-5678"
+                required>
+            </div>
+            <div class="form-group">
+              <label for="email">メールアドレス <span class="required">必須</span></label>
+              <input id="email" type="email" name="email" placeholder="例：abcdef123@example.com" required>
+            </div>
+            <div class="form-group">
+              <label>郵便番号<span class="required">必須</span></label>
+              <span class="zip-note">※入力すると住所を自動で補完します</span>
+              <input type="tel" name="zip" class="p-postal-code" size="8" maxlength="8" placeholder="123-4567" required>
+            </div>
+            <div class="form-group">
+              <label>都道府県<span class="required">必須</span></label>
+              <input type="text" name="pref" class="p-region" placeholder="東京都" required>
+            </div>
+            <div class="form-group">
+              <label>市区町村・番地<span class="required">必須</span></label>
+              <input type="text" name="addr" class="p-locality p-street-address p-extended-address"
+                placeholder="千代田区麹町1-2-3" required>
+            </div>
+            <div class="form-group">
+              <label>被害状況・害虫の種類</label>
+              <select name="type">
+                <option value="">選択してください▾</option>
+                <option value="ハチ">ハチ</option>
+                <option value="ゴキブリ">ゴキブリ</option>
+                <option value="シロアリ">シロアリ</option>
+                <option value="アリ">アリ</option>
+                <option value="ハチ">ハチ</option>
+                <option value="ダニ">ダニ</option>
+                <option value="ノミ">ノミ</option>
+                <option value="その他">その他・わからない</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>備考（任意）</label>
+              <textarea name="message" placeholder="ベランダに巣がある、など"></textarea>
+            </div>
+            <button type="submit" class="form-submit-btn">入力した内容を送信</button>
+            <p class="privacy-text">※送信により<a href="https://rescue-samurai.com/privacy/">プライバシーポリシー</a>に同意したことになります。</p>
+          </form>
+        </div>
       </section>
+      <div class="bottom-cta-bar">
+        <a href="tel:050-8896-4221" class="btn-tel">
+          <span class="icon">📞</span>電話相談はこちら
+        </a>
+        <a href="#mail-contact" class="btn-line">
+          <span class="icon">✉</span>
+          <span>メール・LINEはこちら</span>
+        </a>
+      </div>
     </main>
 
     <footer class="site-footer">

@@ -10,11 +10,47 @@
 // })();
 
 /**
+ * ハンバーガーメニュー & アコーディオン制御
+ */
+
+const menuBtn = document.getElementById('menu-btn');
+const spNav = document.getElementById('sp-nav');
+const overlay = document.getElementById('nav-overlay');
+const header = document.querySelector('.site-header');
+
+function toggleMenu() {
+    if (!menuBtn || !spNav) return;
+    menuBtn.classList.toggle('open');
+    spNav.classList.toggle('active');
+    overlay.classList.toggle('active');
+    document.body.classList.toggle('menu-open');
+}
+
+if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
+if (overlay) overlay.addEventListener('click', toggleMenu);
+
+document.querySelectorAll('.sp-nav a').forEach(link => {
+    link.addEventListener('click', function (e) {
+        if (this.classList.contains('parent-link')) {
+            e.preventDefault();
+            e.stopPropagation();
+            this.parentElement.classList.toggle('active');
+        } else {
+            if (spNav.classList.contains('active')) {
+                toggleMenu();
+            }
+            setTimeout(() => {
+                document.querySelectorAll('.has-child').forEach(item => {
+                    item.classList.remove('active');
+                });
+            }, 500);
+        }
+    });
+});
+
+/**
  * スクロールによるヘッダーの出し入れ
  */
-const menuBtn = document.getElementById('menu-btn');
-const header = document.querySelector('.header');
-
 let lastScrollY = 0;
 
 window.addEventListener('scroll', () => {
