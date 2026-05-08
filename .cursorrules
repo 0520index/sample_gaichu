@@ -1,0 +1,3 @@
+* 外部ライブラリ（React/Vue/Tailwind）は使用せず、Vanilla HTML/CSS/JSで記述してください。
+* CSSは外部ファイル(style.css)に切り出してください。
+* モバイルファーストで記述し、PC表示は最大幅500pxの中央寄せに固定してください。
