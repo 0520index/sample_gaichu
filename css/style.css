@@ -480,66 +480,66 @@ body.menu-open {
 }
 
 .hero-chips li {
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  padding: 12px 16px;
-  border-radius: 12px;
-  font-size: 0.82rem;
-  font-weight: 700;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Hero CTA */
 .hero-cta {
-  background: var(--surface);
-  padding: 20px 18px 24px;
-  text-align: center;
+    background: var(--surface);
+    padding: 20px 18px 24px;
+    text-align: center;
 }
 
 .btn--compact {
-  padding: 14px 32px;
-  font-size: 0.95rem;
-  max-width: 280px;
-  margin: 0 auto;
+    padding: 14px 32px;
+    font-size: 0.95rem;
+    max-width: 280px;
+    margin: 0 auto;
 }
 
 .btn--compact .btn__text {
-  font-size: 1rem;
-  font-weight: 800;
+    font-size: 1rem;
+    font-weight: 800;
 }
 
 /* Mid CTA */
 .mid-cta {
-  background: #f8f9fa;
-  padding: 32px 18px;
-  text-align: center;
-  border-top: 1px solid #e8ecf1;
-  border-bottom: 1px solid #e8ecf1;
+    background: #f8f9fa;
+    padding: 32px 18px;
+    text-align: center;
+    border-top: 1px solid #e8ecf1;
+    border-bottom: 1px solid #e8ecf1;
 }
 
 .mid-cta__text {
-  margin: 0 0 18px;
-  font-size: 1.1rem;
-  color: var(--text-muted);
-  line-height: 1.5;
+    margin: 0 0 18px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.5;
 }
 
 .mid-cta__text strong {
-  color: var(--brand);
-  font-weight: 800;
+    color: var(--brand);
+    font-weight: 800;
 }
 
 .btn--mid {
-  padding: 12px 24px;
-  font-size: 0.9rem;
-  max-width: 240px;
-  margin: 0 auto;
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    max-width: 240px;
+    margin: 0 auto;
 }
 
 .btn--mid .btn__text {
-  font-size: 1.1rem;
-  font-weight: 800;
+    font-size: 1.1rem;
+    font-weight: 800;
 }
 
 /* --------------------------------------------------------------------------
@@ -972,6 +972,43 @@ body.menu-open {
     border: 1px solid #e8ecf1;
 }
 
+/* payment */
+.payment-section {
+    padding: 30px 0px;
+    text-align: center;
+}
+
+.payment-lead {
+    font-size: 0.75rem;
+    line-height: 1.6;
+    font-weight: 500;
+    margin: 2.5px;
+    color: #555;
+}
+
+.payment-image-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+.payment-img {
+    width: 300px !important;
+    max-width: 900px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.payment-notes {
+    margin: 5px;
+    font-size: 0.6rem;
+    color: #888;
+}
+
 /* Voices */
 .voices__watermark {
     text-align: center;
@@ -1222,8 +1259,6 @@ body.menu-open {
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 8px;
-    gap: 8px;
     z-index: 1000;
     box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.25);
     -webkit-tap-highlight-color: transparent;
@@ -1233,10 +1268,6 @@ body.menu-open {
 @media (min-width: 501px) {
     .bottom-cta-bar {
         display: none;
-    }
-
-    .site-footer {
-        padding-bottom: 32px;
     }
 }
 
@@ -1330,29 +1361,39 @@ body.menu-open {
 
 /* Footer */
 .site-footer {
-    background: #111820;
-    color: rgba(255, 255, 255, 0.75);
-    padding: 28px 18px 88px;
-    padding-bottom: 32px;
+    padding: 25px 35px 25px;
+    background: #111;
+    color: #888;
     text-align: center;
-    font-size: 0.82rem;
+    display: flex;
+    flex-direction: column;
 }
 
-.site-footer__logo {
-    margin: 0 0 8px;
-    font-weight: 800;
-    font-size: 1.1rem;
+.main-footer {
+    padding: 25px 35px 25px;
+    background: #111;
+    color: #888;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo {
     color: #fff;
+    font-weight: 900;
+    margin-bottom: 10px;
 }
 
-.site-footer__company {
-    margin: 0 0 6px;
+.operation-box {
+    border: 1px solid #888;
+    padding: 4px 8px;
+    font-size: 10px;
+    align-self: center;
 }
 
-.site-footer__copy {
-    margin: 0;
-    font-size: 0.72rem;
-    color: rgba(255, 255, 255, 0.4);
+.copyright {
+    font-size: 0.8rem;
+    margin-bottom: 15px;
 }
 
 /* Utility */
