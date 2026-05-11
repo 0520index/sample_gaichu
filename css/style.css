@@ -490,13 +490,7 @@ body.menu-open {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* Hero CTA */
-.hero-cta {
-    background: var(--surface);
-    padding: 20px 18px 24px;
-    text-align: center;
-}
-
+/* Mid CTA */
 .btn--compact {
     padding: 14px 32px;
     font-size: 0.95rem;
@@ -506,39 +500,6 @@ body.menu-open {
 
 .btn--compact .btn__text {
     font-size: 1rem;
-    font-weight: 800;
-}
-
-/* Mid CTA */
-.mid-cta {
-    background: #f8f9fa;
-    padding: 32px 18px;
-    text-align: center;
-    border-top: 1px solid #e8ecf1;
-    border-bottom: 1px solid #e8ecf1;
-}
-
-.mid-cta__text {
-    margin: 0 0 18px;
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    line-height: 1.5;
-}
-
-.mid-cta__text strong {
-    color: var(--brand);
-    font-weight: 800;
-}
-
-.btn--mid {
-    padding: 12px 24px;
-    font-size: 0.9rem;
-    max-width: 240px;
-    margin: 0 auto;
-}
-
-.btn--mid .btn__text {
-    font-size: 1.1rem;
     font-weight: 800;
 }
 
@@ -1155,6 +1116,32 @@ body.menu-open {
 }
 
 /* Contact form */
+.contact-points-wrapper {
+    text-align: center;
+}
+
+.contact-points {
+    display: inline-block;
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+}
+
+.contact-points li {
+    position: relative;
+    padding-left: 1.5em;
+    line-height: 2;
+    font-weight: 500;
+}
+
+.contact-points li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #b32d2d;
+    font-weight: bold;
+}
 
 .contact-form-container {
     max-width: 650px;
@@ -1167,6 +1154,13 @@ body.menu-open {
     margin: 30px 20px;
     width: 90%;
 
+}
+
+.form-title {
+    white-space: nowrap;
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
 }
 
 .form-group {
@@ -1318,6 +1312,18 @@ body.menu-open {
     }
 }
 
+@keyframes kachi-kachi {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
 .btn-tel {
     background: linear-gradient(135deg, #d32f2f 0%, #b32d2d 50%, #9a1f1f 100%);
     border-top: 1px solid #ff5252;
@@ -1361,7 +1367,8 @@ body.menu-open {
 
 /* Footer */
 .site-footer {
-    padding: 25px 35px 25px;
+    padding: 25px 35px;
+    padding-bottom: 100px;
     background: #111;
     color: #888;
     text-align: center;
