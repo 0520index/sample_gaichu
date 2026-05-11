@@ -40,6 +40,7 @@ body {
     color: var(--text);
     background: var(--page-bg);
     line-height: 1.65;
+    overflow-x: hidden;
 }
 
 img {
@@ -852,6 +853,113 @@ body.menu-open {
 /* Compare */
 .compare {
     padding-top: 36px;
+}
+
+.comparison-table {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #585858c7;
+    padding: 10px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.cell {
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
+    line-height: 1.4;
+}
+
+.header-gray-label {
+    background-color: #1a2a40;
+    border-radius: 4px;
+    height: 60px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.col-yellow {
+    width: 200px;
+    margin-top: 20px;
+}
+
+.item-label {
+    background-color: #eaff2fe8;
+    border-radius: 4px;
+    color: #000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.col-red {
+    width: 400px;
+    background: linear-gradient(30deg, #ffc400 0%, #ff1a1a 60%);
+    border-radius: 8px;
+    box-shadow: 0px 0px 6px 2px rgba(0, 0, 0, 0.7);
+    /*box-shadow: 4px 4px 8px rgb(165, 165, 165);*/
+    z-index: 10;
+    position: relative;
+    padding: 0 6px 24px 6px;
+    overflow: hidden;
+}
+
+.header-red {
+    height: 80px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    gap: 5px;
+}
+
+.content-white {
+    background-color: #fff;
+}
+
+.text-sub {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.text-main {
+    font-size: 24px;
+    font-weight: bold;
+    color: #d60000;
+    line-height: 1.1;
+    margin-top: 4px;
+}
+
+.col-gray {
+    width: 250px;
+    margin-top: 20px;
+}
+
+.header-gray {
+    background-color: #1a2a40;
+    border-radius: 4px;
+    height: 60px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.content-gray {
+    background-color: #ffffff;
+    border-radius: 4px;
+    color: #555;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .compare__eyebrow {
