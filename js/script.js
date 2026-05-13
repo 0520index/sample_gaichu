@@ -10,7 +10,7 @@
 // })();
 
 /**
- * ハンバーガーメニュー & アコーディオン制御
+ * Mobile Menu Controller - iOS Safari 対応
  */
 
 const menuBtn = document.getElementById('menu-btn');
@@ -18,34 +18,103 @@ const spNav = document.getElementById('sp-nav');
 const overlay = document.getElementById('nav-overlay');
 const header = document.querySelector('.site-header');
 
-function toggleMenu() {
-    if (!menuBtn || !spNav) return;
-    menuBtn.classList.toggle('open');
-    spNav.classList.toggle('active');
-    overlay.classList.toggle('active');
-    document.body.classList.toggle('menu-open');
+let scrollPosition = 0;
+
+function openMenu() {
+    if (!menuBtn || !spNav || !overlay) return;
+
+    // 現在のスクロール位置を保存
+    scrollPosition = window.pageYOffset;
+
+    // Body固定（iOS Safari対応）
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.classList.add('menu-open');
+
+    // メニュー表示
+    menuBtn.classList.add('open');
+    overlay.classList.add('active');
+    spNav.classList.add('active');
+
+    // ヘッダーを強制表示
+    if (header) {
+        header.classList.add('is-open');
+    }
 }
 
-if (menuBtn) menuBtn.addEventListener('click', toggleMenu);
-if (overlay) overlay.addEventListener('click', toggleMenu);
+function closeMenu() {
+    if (!menuBtn || !spNav || !overlay) return;
 
+    // メニュー非表示
+    menuBtn.classList.remove('open');
+    overlay.classList.remove('active');
+    spNav.classList.remove('active');
+
+    // Body固定解除
+    document.body.classList.remove('menu-open');
+    document.body.style.top = '';
+
+    // スクロール位置復元
+    window.scrollTo(0, scrollPosition);
+
+    // ヘッダー状態リセット
+    if (header) {
+        header.classList.remove('is-open');
+    }
+
+    // アコーディオンをすべて閉じる
+    setTimeout(() => {
+        document.querySelectorAll('.has-child').forEach(item => {
+            item.classList.remove('active');
+        });
+    }, 300);
+}
+
+function toggleMenu() {
+    if (spNav && spNav.classList.contains('active')) {
+        closeMenu();
+    } else {
+        openMenu();
+    }
+}
+
+// イベントリスナー
+if (menuBtn) {
+    menuBtn.addEventListener('click', toggleMenu);
+}
+
+if (overlay) {
+    overlay.addEventListener('click', closeMenu);
+}
+
+// メニュー内リンクのクリック処理
 document.querySelectorAll('.sp-nav a').forEach(link => {
     link.addEventListener('click', function (e) {
         if (this.classList.contains('parent-link')) {
+            // アコーディオン開閉
             e.preventDefault();
             e.stopPropagation();
             this.parentElement.classList.toggle('active');
         } else {
-            if (spNav.classList.contains('active')) {
-                toggleMenu();
+            // 通常リンク - メニューを閉じる
+            if (spNav && spNav.classList.contains('active')) {
+                closeMenu();
             }
-            setTimeout(() => {
-                document.querySelectorAll('.has-child').forEach(item => {
-                    item.classList.remove('active');
-                });
-            }, 500);
         }
     });
+});
+
+// ESCキーでメニューを閉じる
+document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && spNav && spNav.classList.contains('active')) {
+        closeMenu();
+    }
+});
+
+// リサイズ時にメニューを閉じる（横向き→縦向きなど）
+window.addEventListener('resize', function () {
+    if (spNav && spNav.classList.contains('active')) {
+        closeMenu();
+    }
 });
 
 /**

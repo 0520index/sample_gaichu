@@ -159,60 +159,85 @@ a {
 }
 
 /* ==========================================
-   1. ハンバーガーボタン（三本線）
+   Mobile Menu System - Overlay Type
    ========================================== */
+
+/* 1. ハンバーガーボタン */
 .menu-btn {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-around !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
     position: absolute;
     right: 20px;
     top: 50%;
     transform: translateY(-50%);
-    width: 30px !important;
-    height: 25px !important;
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-    z-index: 10001 !important;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    z-index: 10001;
     cursor: pointer;
 }
 
 .menu-btn span {
-    display: block !important;
-    width: 100% !important;
-    height: 3px !important;
-    background-color: #333 !important;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
     position: relative;
 }
 
 .menu-btn.open {
-    position: fixed !important;
-    top: 25px !important;
-    right: 25px !important;
-    transform: none !important;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    transform: none;
 }
 
 .menu-btn.open span:nth-child(1) {
     top: 8px;
-    transform: rotate(45deg) !important;
+    transform: rotate(45deg);
 }
 
 .menu-btn.open span:nth-child(2) {
-    opacity: 0 !important;
+    opacity: 0;
     transform: translateX(-20px);
 }
 
 .menu-btn.open span:nth-child(3) {
     top: -8px;
-    transform: rotate(-45deg) !important;
+    transform: rotate(-45deg);
 }
 
-/* ==========================================
-   2. メニュー本体（スライドパネル）
-   ========================================== */
+/* 2. オーバーレイ背景 */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 9998;
+    
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* 3. メニューパネル */
 .sp-nav {
     position: fixed;
     top: 0;
@@ -220,13 +245,32 @@ a {
     width: 320px;
     max-width: 85%;
     height: 100vh;
+    height: 100dvh;
     background: #fff;
-    z-index: 10000;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+    
+    /* 閉状態 */
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    
+    /* アニメーション */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* スクロール */
     overflow-y: auto;
-    transform: translateX(100%);
+    -webkit-overflow-scrolling: touch;
+    
+    /* シャドウ */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+}
+
+.sp-nav.active {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .sp-nav::before {
@@ -239,30 +283,7 @@ a {
     border-bottom: 1px solid #eee;
 }
 
-.sp-nav.active {
-    transform: translateX(0);
-    visibility: visible;
-    pointer-events: auto;
-}
-
-.nav-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.4s;
-    z-index: 9999;
-}
-
-.nav-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* ==========================================
-   3. メニュー内リンク & アコーディオン
-   ========================================== */
+/* 4. メニューリスト */
 .sp-nav ul {
     list-style: none;
     padding: 0;
@@ -284,7 +305,7 @@ a {
     font-weight: bold;
     font-size: 1.05rem;
     min-height: 60px;
-    transition: 0.3s;
+    transition: background-color 0.3s;
 }
 
 .sp-nav a:active {
@@ -300,7 +321,7 @@ a {
     height: 100%;
     background: #b32d2d;
     opacity: 0;
-    transition: 0.3s;
+    transition: opacity 0.3s;
 }
 
 .sp-nav li:hover::before,
@@ -315,20 +336,22 @@ a {
     font-weight: bold;
 }
 
-.has-child>.parent-link::after {
-    content: "＋" !important;
-    color: #b32d2d !important;
+/* 5. アコーディオンメニュー */
+.has-child > .parent-link::after {
+    content: "＋";
+    color: #b32d2d;
     font-size: 1.1rem;
     font-weight: bold;
+    transition: transform 0.3s, color 0.3s;
 }
 
-.has-child.active>.sub-menu {
-    display: block !important;
+.has-child.active > .sub-menu {
+    display: block;
 }
 
-.has-child.active>.parent-link::after {
+.has-child.active > .parent-link::after {
     transform: rotate(45deg);
-    color: #333 !important;
+    color: #333;
 }
 
 .sub-menu {
@@ -338,39 +361,40 @@ a {
 }
 
 .sub-menu a {
-    padding: 15px 25px 15px 45px !important;
-    font-weight: normal !important;
-    font-size: 0.95rem !important;
+    padding: 15px 25px 15px 45px;
+    font-weight: normal;
+    font-size: 0.95rem;
     color: #555;
     min-height: 45px;
 }
 
 .sub-menu a::after {
-    content: "〉" !important;
-    color: #eee !important;
+    content: "〉";
+    color: #ccc;
 }
 
+/* 6. CTAボタン */
 .sp-nav .sp-nav-cta {
-    background: #b32d2d !important;
-    color: #fff !important;
-    margin: 20px 25px !important;
-    padding: 18px !important;
-    border-radius: 6px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    font-size: 1.15rem !important;
-    box-shadow: 0 4px 15px rgba(179, 45, 45, 0.4) !important;
-    transition: transform 0.2s, background 0.3s !important;
+    background: #b32d2d;
+    color: #fff;
+    margin: 20px 25px;
+    padding: 18px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 15px rgba(179, 45, 45, 0.4);
+    transition: transform 0.2s, background 0.3s;
 }
 
 .sp-nav .sp-nav-cta::after {
-    display: none !important;
+    display: none;
 }
 
 .sp-nav .sp-nav-cta:active {
     transform: scale(0.98);
-    background: #8e2424 !important;
+    background: #8e2424;
 }
 
 .sp-nav li:last-child a::after {
@@ -381,11 +405,12 @@ a {
     display: none;
 }
 
-/* ==========================================
-   4. その他
-   ========================================== */
-
+/* 7. Body固定（iOS Safari対応） */
 body.menu-open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     overflow: hidden;
 }
 
