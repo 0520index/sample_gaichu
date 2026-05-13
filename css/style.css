@@ -32,7 +32,6 @@
 html {
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
-    overscroll-behavior-x: none;
 }
 
 body {
@@ -41,8 +40,6 @@ body {
     color: var(--text);
     background: var(--page-bg);
     line-height: 1.65;
-    overflow-x: hidden;
-    overscroll-behavior-x: none;
 }
 
 img {
@@ -54,6 +51,12 @@ img {
 /* 横スクロール防止のための基本設定 */
 * {
     max-width: 100%;
+}
+
+/* iOS Safari での横スクロール防止 */
+body {
+    overscroll-behavior-x: none;
+    -webkit-overflow-scrolling: touch;
 }
 
 a {
@@ -68,6 +71,7 @@ a {
     min-height: 100vh;
     background: var(--surface);
     box-shadow: var(--shadow);
+    overflow-x: clip;
 }
 
 @media (min-width: 501px) {
@@ -231,11 +235,11 @@ a {
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(2px);
     z-index: 9998;
-
+    
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
+    
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -256,22 +260,22 @@ a {
     height: 100dvh;
     background: #fff;
     z-index: 9999;
-
+    
     /* 閉状態 */
     transform: translate3d(100%, 0, 0);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
-
+    
     /* アニメーション */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
+    
     /* スクロール */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-
-    /* シャドウ */
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    
+    /* シャドウ - 閉状態では非表示 */
+    box-shadow: none;
 }
 
 .sp-nav.active {
@@ -279,6 +283,8 @@ a {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
+    /* 開状態でのみシャドウ表示 */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
 }
 
 .sp-nav::before {
@@ -345,7 +351,7 @@ a {
 }
 
 /* 5. アコーディオンメニュー */
-.has-child>.parent-link::after {
+.has-child > .parent-link::after {
     content: "＋";
     color: #b32d2d;
     font-size: 1.1rem;
@@ -353,11 +359,11 @@ a {
     transition: transform 0.3s, color 0.3s;
 }
 
-.has-child.active>.sub-menu {
+.has-child.active > .sub-menu {
     display: block;
 }
 
-.has-child.active>.parent-link::after {
+.has-child.active > .parent-link::after {
     transform: rotate(45deg);
     color: #333;
 }
@@ -406,11 +412,11 @@ a {
 }
 
 /* メインメニューの最後の項目のみ対象 */
-.sp-nav>ul>li:last-child a::after {
+.sp-nav > ul > li:last-child a::after {
     display: none;
 }
 
-.sp-nav>ul>li:last-child::before {
+.sp-nav > ul > li:last-child::before {
     display: none;
 }
 
