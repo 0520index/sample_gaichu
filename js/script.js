@@ -137,3 +137,100 @@ window.addEventListener('scroll', () => {
     }
     lastScrollY = currentScrollY;
 });
+
+/**
+ * Voice Cards - 開閉式レビューUI & More機能
+ */
+
+document.addEventListener('DOMContentLoaded', function() {
+    // 個別カードの開閉機能
+    function initVoiceCards() {
+        const voiceCards = document.querySelectorAll('.voice-card');
+        
+        voiceCards.forEach(card => {
+            const toggle = card.querySelector('.voice-card__toggle');
+            if (!toggle) return;
+            
+            toggle.addEventListener('click', function() {
+                const isOpen = card.classList.contains('active');
+                
+                // アクセシビリティ対応
+                toggle.setAttribute('aria-expanded', !isOpen);
+                
+                if (isOpen) {
+                    // 閉じる
+                    card.classList.remove('active');
+                    toggle.textContent = '続きを読む';
+                    
+                    // スクロール位置調整（カードが画面上部にある場合）
+                    const cardRect = card.getBoundingClientRect();
+                    if (cardRect.top < 100) {
+                        setTimeout(() => {
+                            card.scrollIntoView({ 
+                                behavior: 'smooth', 
+                                block: 'start' 
+                            });
+                        }, 200);
+                    }
+                } else {
+                    // 開く
+                    card.classList.add('active');
+                    toggle.textContent = '閉じる';
+                }
+            });
+        });
+        
+        // タッチデバイスでのホバー効果改善
+        if ('ontouchstart' in window) {
+            voiceCards.forEach(card => {
+                card.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.99)';
+                });
+                
+                card.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                });
+            });
+        }
+    }
+    
+    // もっと見る機能
+    const moreBtn = document.getElementById('voice-more-btn');
+    const moreContent = document.querySelector('.voice-more-content');
+    
+    if (moreBtn && moreContent) {
+        moreBtn.addEventListener('click', function() {
+            const isExpanded = moreBtn.classList.contains('expanded');
+            
+            if (isExpanded) {
+                // 閉じる
+                moreContent.style.display = 'none';
+                moreContent.classList.remove('show');
+                moreBtn.classList.remove('expanded');
+                moreBtn.querySelector('.voice-more-text').textContent = 'もっと見る';
+                
+                // 初期表示エリアにスクロール
+                document.querySelector('.voices').scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'start' 
+                });
+            } else {
+                // 開く
+                moreContent.style.display = 'block';
+                // アニメーション用に少し遅延
+                setTimeout(() => {
+                    moreContent.classList.add('show');
+                }, 10);
+                
+                moreBtn.classList.add('expanded');
+                moreBtn.querySelector('.voice-more-text').textContent = '閉じる';
+                
+                // 新しく表示されるカードの開閉機能を初期化
+                initVoiceCards();
+            }
+        });
+    }
+    
+    // 初期カードの開閉機能を初期化
+    initVoiceCards();
+});

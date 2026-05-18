@@ -347,12 +347,139 @@
       <section class="section section--dark voices" aria-labelledby="voice-heading">
         <p class="voices__watermark" aria-hidden="true">VOICE</p>
         <h2 id="voice-heading" class="section__title section__title--light">お客様の声</h2>
-        <blockquote class="voice-card">
-          <img class="voice-card__photo" src="images/placeholder.svg"
-            alt="屋外で写真に写る笑顔のご夫婦。清潔な住宅の前で取材風ポーズをしている顔出し許可済みモデル写真またはイメージ用">
-          <p class="voice-card__meta">東京都在住・40代・ご夫婦</p>
-          <p class="voice-card__text">夜の物音が不安で連絡しました。見積りの説明が丁寧で、駆除後も穴の塞ぎまでやってくださって安心しました。</p>
-        </blockquote>
+
+        <div class="voice-list">
+          <!-- 初期表示されるレビュー -->
+          <article class="voice-card" data-voice-id="1">
+            <div class="voice-card__header">
+              <img class="voice-card__photo" src="images/placeholder.svg" alt="お客様の写真">
+              <div class="voice-card__meta">
+                <h3 class="voice-card__title">夜中のゴキブリ駆除で安心</h3>
+                <p class="voice-card__info">東京都在住・40代・ご夫婦</p>
+                <div class="voice-card__rating">
+                  <span class="star">★★★★★</span>
+                  <span class="rating-text">5.0</span>
+                </div>
+              </div>
+            </div>
+            <div class="voice-card__content">
+              <p class="voice-card__text">
+                夜の物音が不安で連絡しました。見積りの説明が丁寧で、駆除後も穴の塞ぎまでやってくださって安心しました。作業員の方も清潔感があり、女性一人でも安心してお任せできました。再発防止のアドバイスまでいただき、本当に助かりました。
+              </p>
+            </div>
+            <button class="voice-card__toggle" aria-expanded="false">続きを読む</button>
+          </article>
+
+          <article class="voice-card" data-voice-id="2">
+            <div class="voice-card__header">
+              <img class="voice-card__photo" src="images/placeholder.svg" alt="お客様の写真">
+              <div class="voice-card__meta">
+                <h3 class="voice-card__title">スズメバチ巣の即日対応に感謝</h3>
+                <p class="voice-card__info">神奈川県・30代・一戸建て</p>
+                <div class="voice-card__rating">
+                  <span class="star">★★★★★</span>
+                  <span class="rating-text">5.0</span>
+                </div>
+              </div>
+            </div>
+            <div class="voice-card__content">
+              <p class="voice-card__text">
+                軒下にできた大きなスズメバチの巣。小さい子供がいるので急いで対応してもらいました。当日中に来ていただき、完全に除去。周囲への配慮も完璧で、ご近所にも迷惑をかけることなく作業完了。プロの技術力に感動です。
+              </p>
+            </div>
+            <button class="voice-card__toggle" aria-expanded="false">続きを読む</button>
+          </article>
+
+          <div class="voice-more-content" style="display: none;">
+            <article class="voice-card" data-voice-id="3">
+              <div class="voice-card__header">
+                <img class="voice-card__photo" src="images/placeholder.svg" alt="お客様の写真">
+                <div class="voice-card__meta">
+                  <h3 class="voice-card__title">トコジラミ完全駆除で快眠復活</h3>
+                  <p class="voice-card__info">埼玉県・50代・マンション</p>
+                  <div class="voice-card__rating">
+                    <span class="star">★★★★★</span>
+                    <span class="rating-text">5.0</span>
+                  </div>
+                </div>
+              </div>
+              <div class="voice-card__content">
+                <p class="voice-card__text">
+                  寝室にトコジラミが発生し、夜も眠れない状況でした。他社では根本解決せず困っていましたが、レスキュー侍さんは違いました。徹底的な調査から始まり、侵入経路まで完璧に塞いでいただき、その後一匹も出ていません。料金も明朗で安心でした。
+                </p>
+              </div>
+              <button class="voice-card__toggle" aria-expanded="false">続きを読む</button>
+            </article>
+
+            <article class="voice-card" data-voice-id="4">
+              <div class="voice-card__header">
+                <img class="voice-card__photo" src="images/placeholder.svg" alt="お客様の写真">
+                <div class="voice-card__meta">
+                  <h3 class="voice-card__title">飲食店のダニ対策で営業継続</h3>
+                  <p class="voice-card__info">千葉県・40代・飲食店経営</p>
+                  <div class="voice-card__rating">
+                    <span class="star">★★★★★</span>
+                    <span class="rating-text">5.0</span>
+                  </div>
+                </div>
+              </div>
+              <div class="voice-card__content">
+                <p class="voice-card__text">
+                  店舗にダニが発生し、お客様にご迷惑をおかけする前に緊急対応をお願いしました。深夜営業後の作業にも関わらず、迅速に対応いただき翌日から通常営業できました。衛生管理のアドバイスも的確で、今では定期メンテナンスもお願いしています。
+                </p>
+              </div>
+              <button class="voice-card__toggle" aria-expanded="false">続きを読む</button>
+            </article>
+
+            <article class="voice-card" data-voice-id="5">
+              <div class="voice-card__header">
+                <img class="voice-card__photo" src="images/placeholder.svg" alt="お客様の写真">
+                <div class="voice-card__meta">
+                  <h3 class="voice-card__title">ベランダのムカデ被害解決</h3>
+                  <p class="voice-card__info">東京都・60代・マンション</p>
+                  <div class="voice-card__rating">
+                    <span class="star">★★★★★</span>
+                    <span class="rating-text">5.0</span>
+                  </div>
+                </div>
+              </div>
+              <div class="voice-card__content">
+                <p class="voice-card__text">
+                  ベランダのムカデに困っていました。マンション管理組合との調整も含め、丁寧に対応していただきました。その後ムカデは一匹もいなくなりました。
+                </p>
+              </div>
+              <button class="voice-card__toggle" aria-expanded="false">続きを読む</button>
+            </article>
+
+            <article class="voice-card" data-voice-id="6">
+              <div class="voice-card__header">
+                <img class="voice-card__photo" src="images/placeholder.svg" alt="お客様の写真">
+                <div class="voice-card__meta">
+                  <h3 class="voice-card__title">女性スタッフで安心対応</h3>
+                  <p class="voice-card__info">神奈川県・30代・一人暮らし</p>
+                  <div class="voice-card__rating">
+                    <span class="star">★★★★★</span>
+                    <span class="rating-text">5.0</span>
+                  </div>
+                </div>
+              </div>
+              <div class="voice-card__content">
+                <p class="voice-card__text">
+                  一人暮らしでアリの大量発生に困り、女性スタッフでの対応をお願いしました。丁寧な事前説明と、女性ならではの細やかな配慮で安心してお任せできました。ペットの猫への影響も最小限に抑えた薬剤選択をしていただき、本当に感謝しています。
+                </p>
+              </div>
+              <button class="voice-card__toggle" aria-expanded="false">続きを読む</button>
+            </article>
+          </div>
+
+          <!-- もっと見るボタン -->
+          <div class="voice-more-wrapper">
+            <button class="voice-more-btn" id="voice-more-btn">
+              <span class="voice-more-text">もっと見る</span>
+              <span class="voice-more-icon">▼</span>
+            </button>
+          </div>
+        </div>
       </section>
 
       <section class="section steps" aria-labelledby="steps-heading">
