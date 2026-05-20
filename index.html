@@ -538,46 +538,54 @@
       </section>
 
       <section class="section section--map area-map" aria-labelledby="area-heading">
-        <h2 id="area-heading" class="section__title"><span class="area-map__accent">AREA</span> 対応エリア</h2>
-        <p class="area-map__catch">主要エリアは<strong>最速約30分</strong>でお伺いできる場合があります（曜日・距離により変動）。</p>
+        <p class="area-map__watermark" aria-hidden="true">AREA</p>
+        <h2 id="area-heading" class="section__title">対応エリア</h2>
+        <p class="section__lead area-map__lead">首都圏を中心に迅速対応。主要エリアは<strong>最速約30分</strong>でお伺いできる場合があります（曜日・距離により変動）。</p>
 
         <div class="area-grid">
-          <div class="area-card">
-            <h3><span class="pref-tag">駆除実績エリア</span>
-              <a href="#">東京都</a>
-            </h3>
-            <p class="city-list">
+          <article class="area-card">
+            <header class="area-card__head">
+              <span class="area-card__badge">駆除実績エリア</span>
+              <h3 class="area-card__title"><a href="#">東京都</a></h3>
+            </header>
+            <p class="area-card__cities">
               新宿区、足立区、江戸川区、練馬区、世田谷区、杉並区、大田区、板橋区、葛飾区、江東区、品川区、北区、中野区、豊島区、目黒区、墨田区、文京区、港区、渋谷区、荒川区、台東区、中央区、千代田区、八王子市、町田市、府中市、調布市、西東京市、小平市、三鷹市、日野市、立川市、ほか都内全域
             </p>
-          </div>
-          <div class="area-card">
-            <h3><span class="pref-tag">駆除実績エリア</span>
-              <a href="#">神奈川県</a>
-            </h3>
-            <p class="city-list">
+          </article>
+          <article class="area-card">
+            <header class="area-card__head">
+              <span class="area-card__badge">駆除実績エリア</span>
+              <h3 class="area-card__title"><a href="#">神奈川県</a></h3>
+            </header>
+            <p class="area-card__cities">
               横浜市（鶴見区・神奈川区・西区・中区・南区・保土ケ谷区・磯子区・金沢区・港北区・戸塚区・港南区・旭区・緑区・瀬谷区・栄区・泉区・青葉区・都筑区）、川崎市、相模原市、藤沢市、横須賀市、平塚市、茅ヶ崎市、大和市、厚木市、座間市、海老名市、伊勢原市、綾瀬市、ほか県内全域
             </p>
-          </div>
-          <div class="area-card">
-            <h3><span class="pref-tag">駆除実績エリア</span>
-              <a href="#">埼玉県</a>
-            </h3>
-            <p class="city-list">
+          </article>
+          <article class="area-card">
+            <header class="area-card__head">
+              <span class="area-card__badge">駆除実績エリア</span>
+              <h3 class="area-card__title"><a href="#">埼玉県</a></h3>
+            </header>
+            <p class="area-card__cities">
               さいたま市、川口市、川越市、越谷市、所沢市、草加市、春日部市、上尾市、熊谷市、新座市、久喜市、狭山市、入間市、深谷市、三郷市、朝霞市、戸田市、鴻巣市、加須市、富士見市、ふじみ野市、ほか県内全域
             </p>
-          </div>
-          <div class="area-card">
-            <h3><span class="pref-tag">駆除実績エリア</span>
-              <a href="#">千葉県</a>
-            </h3>
-            <p class="city-list">
+          </article>
+          <article class="area-card">
+            <header class="area-card__head">
+              <span class="area-card__badge">駆除実績エリア</span>
+              <h3 class="area-card__title"><a href="#">千葉県</a></h3>
+            </header>
+            <p class="area-card__cities">
               千葉市（中央区・花見川区・稲毛区・若葉区・緑区・美浜区）、船橋市、松戸市、市川市、柏市、市原市、八千代市、佐倉市、習志野市、浦安市、流山市、野田市、我孫子市、木更津市、成田市、鎌ケ谷市、ほか県内全域
             </p>
-          </div>
+          </article>
 
-          <div class="area-card">
-            <h3><span class="pref-tag">駆除対象</span> 害鳥一覧</h3>
-            <ul class="area-list">
+          <article class="area-card area-card--pests">
+            <header class="area-card__head">
+              <span class="area-card__badge area-card__badge--pests">対応害虫</span>
+              <h3 class="area-card__title">駆除対象の一例</h3>
+            </header>
+            <ul class="area-pests">
               <li>ハチ</li>
               <li>トコジラミ</li>
               <li>アリ</li>
@@ -585,7 +593,7 @@
               <li>ノミ</li>
               <li>その他</li>
             </ul>
-          </div>
+          </article>
         </div>
         <!-- <img class="area-map__img" src="images/placeholder.svg"
           alt="首都圏またはサービス提供地域を示した地図。主要駅・都市部にピンを立て対応エリアと到着目安時間を視覚化する用"> -->
