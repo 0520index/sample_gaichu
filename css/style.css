@@ -1802,6 +1802,316 @@ body.menu-open {
     margin-bottom: 15px;
 }
 
+/* Case Studies */
+.cases {
+    position: relative;
+    background: #f4f6f9;
+    overflow: hidden;
+}
+
+.cases__watermark {
+    text-align: center;
+    margin: 0 0 4px;
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    color: rgba(185, 28, 28, 0.08);
+    line-height: 1;
+}
+
+.cases__lead {
+    margin-bottom: 24px;
+    line-height: 1.75;
+}
+
+.case-list,
+.case-more-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.case-more-content {
+    display: none;
+}
+
+.case-more-content.show {
+    display: flex;
+}
+
+.case-more-wrapper {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.case-card {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    border: 1px solid #e8ecf1;
+    box-shadow: 0 2px 12px rgba(26, 31, 38, 0.06);
+    overflow: hidden;
+}
+
+.case-card.is-open {
+    border-color: rgba(185, 28, 28, 0.25);
+    box-shadow: 0 4px 20px rgba(26, 31, 38, 0.1);
+}
+
+.case-card__trigger {
+    display: block;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background: transparent;
+    text-align: left;
+    font: inherit;
+    color: inherit;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.case-card__trigger:active {
+    background: rgba(185, 28, 28, 0.03);
+}
+
+.case-card__trigger:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: -2px;
+}
+
+.case-card__summary {
+    padding: 18px 18px 14px;
+}
+
+.case-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+
+.case-card__tag {
+    display: inline-block;
+    padding: 4px 10px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    line-height: 1.4;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+}
+
+.case-card__tag--pest {
+    background: var(--brand-soft);
+    color: var(--brand-dark);
+}
+
+.case-card__tag--area {
+    background: #eef2f7;
+    color: var(--text-muted);
+}
+
+.case-card__tag--building {
+    background: var(--accent-gold-soft);
+    color: #8a6914;
+}
+
+.case-card__title {
+    margin: 0 0 8px;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+.case-card.is-open .case-card__summary .case-card__flow {
+    display: none;
+}
+
+.case-card__flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: start;
+    gap: 4px;
+    padding: 12px 10px;
+    background: #f8f9fb;
+    border-radius: var(--radius);
+    border: 1px solid #e8ecf1;
+}
+
+.case-card__flow-step {
+    text-align: center;
+    min-width: 0;
+}
+
+.case-card__flow-label {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: var(--brand);
+    text-transform: uppercase;
+}
+
+.case-card__flow-text {
+    margin: 0;
+    font-size: 0.72rem;
+    line-height: 1.55;
+    color: var(--text);
+    word-break: break-word;
+}
+
+.case-card__flow-arrow {
+    align-self: center;
+    padding-top: 14px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.case-card__flow-step--result .case-card__flow-label {
+    color: var(--teal);
+}
+
+.case-card__flow-step--result .case-card__flow-text {
+    font-weight: 700;
+    color: #0f766e;
+}
+
+.case-card__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    margin-top: auto;
+    padding: 16px 18px;
+    border: none;
+    border-top: 1px solid #e8ecf1;
+    background: #fafbfc;
+    color: var(--brand);
+    font-size: 0.85rem;
+    font-weight: 700;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    flex-shrink: 0;
+}
+
+.case-card.is-open .case-card__toggle {
+    background: var(--surface);
+}
+
+.case-card__toggle:active {
+    background: rgba(185, 28, 28, 0.05);
+}
+
+.case-card__toggle:focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: -2px;
+}
+
+.case-card__toggle-icon {
+    display: inline-block;
+    font-size: 0.65rem;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.case-card.is-open .case-card__toggle-icon {
+    transform: rotate(180deg);
+}
+
+.case-card__detail {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.case-card__detail > .case-card__detail-inner {
+    overflow: hidden;
+}
+
+.case-card.is-open .case-card__detail {
+    grid-template-rows: 1fr;
+}
+
+.case-card__detail-inner {
+    padding: 16px 18px 4px;
+}
+
+.case-card.is-open .case-card__detail-inner {
+    border-top: 1px solid #e8ecf1;
+}
+
+.case-card__fields {
+    margin: 0;
+    padding: 0;
+}
+
+.case-card__field {
+    display: grid;
+    grid-template-columns: 5.5em 1fr;
+    gap: 10px 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #eef1f5;
+    margin: 0;
+}
+
+.case-card__field:last-of-type {
+    border-bottom: none;
+}
+
+.case-card__field dt {
+    margin: 0;
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.case-card__field dd {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.75;
+    color: var(--text);
+}
+
+.case-card__comment {
+    margin: 16px 0 0;
+    padding: 16px 18px;
+    background: var(--brand-soft);
+    border-left: 3px solid var(--brand);
+    border-radius: 0 var(--radius) var(--radius) 0;
+}
+
+.case-card__comment-label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: var(--brand);
+}
+
+.case-card__comment-text {
+    margin: 0;
+    font-size: 0.88rem;
+    line-height: 1.8;
+    color: var(--text);
+    font-style: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .case-card__detail,
+    .case-card__toggle-icon {
+        transition: none;
+    }
+}
+
 /* Utility */
 .visually-hidden {
     position: absolute;
