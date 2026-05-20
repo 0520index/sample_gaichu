@@ -2150,6 +2150,84 @@ body.menu-open {
     }
 }
 
+/* --------------------------------------------------------------------------
+   Pricing / FAQ / Section CTA (SEO導線・最小スタイル)
+   -------------------------------------------------------------------------- */
+.pricing-list {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0 1.25rem;
+}
+
+.pricing-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e8ecf1;
+    font-size: 0.95rem;
+}
+
+.pricing-list li:last-child {
+    border-bottom: none;
+}
+
+.section-cta {
+    margin: 1.25rem 0 0;
+    padding: 0 1.25rem 0.5rem;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.section-cta a {
+    color: var(--brand);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.section-cta--light a {
+    color: #fff;
+}
+
+.faq-list {
+    padding: 0 1rem;
+}
+
+.faq-item {
+    border: 1px solid #e8ecf1;
+    border-radius: var(--radius);
+    margin-bottom: 0.75rem;
+    background: var(--surface);
+    overflow: hidden;
+}
+
+.faq-item summary {
+    cursor: pointer;
+    padding: 1rem 1.1rem;
+    list-style: none;
+    font-weight: 700;
+}
+
+.faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.faq-item summary h3 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    display: inline;
+}
+
+.faq-item p {
+    margin: 0;
+    padding: 0 1.1rem 1rem;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+}
+
+.contact-form__title {
+    font-size: 1.15rem;
+    margin-top: 1.5rem;
+}
+
 /* Utility */
 .visually-hidden {
     position: absolute;
