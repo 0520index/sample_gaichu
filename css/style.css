@@ -1245,7 +1245,6 @@ body.menu-open {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background-color: #585858c7;
     padding: 10px;
 }
 
