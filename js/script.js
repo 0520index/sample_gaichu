@@ -29,11 +29,13 @@ function openMenu() {
     document.body.classList.add('menu-open');
 
     menuBtn.classList.add('open');
+    menuBtn.classList.remove('is-hide');
     overlay.classList.add('active');
     spNav.classList.add('active');
 
     if (header) {
         header.classList.add('is-open');
+        header.classList.remove('is-hide');
     }
 }
 
@@ -111,8 +113,10 @@ window.addEventListener('scroll', () => {
     if (!isMenuOpen) {
         if (currentScrollY > lastScrollY && currentScrollY > 100) {
             header.classList.add('is-hide');
+            menuBtn.classList.add('is-hide');
         } else {
             header.classList.remove('is-hide');
+            menuBtn.classList.remove('is-hide');
         }
     }
     lastScrollY = currentScrollY;
