@@ -22,6 +22,8 @@
     --radius-lg: 18px;
     --font: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
     --site-header-height: 6.25rem;
+    --watermark-on-light: rgba(185, 28, 28, 0.12);
+    --watermark-on-dark: rgba(255, 255, 255, 0.08);
 }
 
 *,
@@ -1018,7 +1020,26 @@ body.menu-open {
 }
 
 .section--map {
-    background: #f4f6f9;
+    background:
+        radial-gradient(135% 120% at 8% 0%, rgba(178, 12, 28, 0.34) 0%, rgba(178, 12, 28, 0) 52%),
+        radial-gradient(128% 112% at 100% 100%, rgba(206, 213, 223, 0.24) 0%, rgba(206, 213, 223, 0) 60%),
+        linear-gradient(150deg, #08090d 0%, #151821 48%, #22090f 100%);
+}
+
+.section--map::before {
+    background: linear-gradient(180deg, rgba(224, 230, 237, 0.22) 0%, rgba(224, 230, 237, 0) 100%);
+}
+
+/* 明るい背景セクション：ウォーターマーク上部に薄い色面を敷く */
+.section:not(.section--dark):not(.section--brand):not(.compare--ref)::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 140px;
+    background: linear-gradient(180deg, var(--brand-soft) 0%, transparent 100%);
+    pointer-events: none;
 }
 
 .section__watermark {
@@ -1030,7 +1051,7 @@ body.menu-open {
     margin: 0;
     font-size: clamp(3rem, 18vw, 5rem);
     font-weight: 900;
-    color: rgba(230, 0, 18, 0.06);
+    color: var(--watermark-on-light);
     line-height: 1;
     letter-spacing: 0.08em;
     pointer-events: none;
@@ -1039,7 +1060,7 @@ body.menu-open {
 
 .section__watermark--light,
 .section__watermark--on-brand {
-    color: rgba(255, 255, 255, 0.06);
+    color: var(--watermark-on-dark);
 }
 
 .section__title {
@@ -1463,6 +1484,18 @@ p.section__title.title-risk::after {
     overflow: hidden;
     padding: 30px 18px;
     text-align: center;
+    background: #f4f6f9;
+}
+
+.payment-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 140px;
+    background: linear-gradient(180deg, var(--brand-soft) 0%, transparent 100%);
+    pointer-events: none;
 }
 
 .payment-lead {
@@ -1871,11 +1904,64 @@ p.section__title.title-risk::after {
     color: var(--brand-dark);
 }
 
+.area-map__lead {
+    color: rgba(236, 241, 248, 0.88);
+}
+
+.area-map__lead strong {
+    color: #e8d1a3;
+}
+
 /* .area-map__img {
     margin-top: 20px;
     border-radius: var(--radius);
     border: 1px solid #dde2ea;
 } */
+
+.area-map .area-card {
+    background: linear-gradient(145deg, rgba(22, 29, 42, 0.84) 0%, rgba(15, 22, 34, 0.94) 100%);
+    border: 1px solid rgba(201, 164, 92, 0.26);
+    box-shadow:
+        0 16px 28px rgba(0, 0, 0, 0.32),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(1.5px);
+}
+
+.area-map .area-card__badge {
+    background: rgba(201, 164, 92, 0.2);
+    color: #f0dfba;
+    border: 1px solid rgba(201, 164, 92, 0.36);
+}
+
+.area-map .area-card__badge--pests {
+    background: rgba(164, 184, 210, 0.2);
+    border-color: rgba(164, 184, 210, 0.32);
+    color: #d9e7f7;
+}
+
+.area-map .area-card__title {
+    color: #f8f8f4;
+}
+
+.area-map .area-card__title a {
+    color: #f0dfba;
+    text-decoration-color: rgba(240, 223, 186, 0.5);
+}
+
+.area-map .area-card__title a:hover {
+    color: #fff7e4;
+    text-decoration-color: rgba(255, 247, 228, 0.82);
+}
+
+.area-map .area-card__cities {
+    color: rgba(228, 235, 245, 0.84);
+}
+
+.area-map .area-pests li {
+    background: rgba(169, 198, 231, 0.18);
+    border: 1px solid rgba(169, 198, 231, 0.36);
+    color: #e2edf8;
+}
 
 /* Contact banner */
 .contact-banner .section__title {
