@@ -41,38 +41,13 @@ try {
         ':message' => $message
     ]);
 
-    // --- ここから 管理者への通知メール送信 ---
-
     mb_language("Japanese");
     mb_internal_encoding("UTF-8");
 
     $to      = "info@rescue-samurai.com";
-    $subject = "【害虫レスキュー侍】サイトからお問い合わせがありました";
-    
-    $body = "サイトから新しいお問い合わせがありました。\n\n";
-    $body .= "--------------------------------------------------\n";
-    $body .= "【お名前】: " . $name . "\n";
-    $body .= "【電話番号】: " . $tel . "\n";
-    $body .= "【メール】: " . $mail . "\n";
-    $body .= "【〒】: " . $zip . "\n";
-    $body .= "【住所】: " . $address . "\n";
-    $body .= "【鳥の種類】: " . $type . "\n";
-    $body .= "【内容】: \n" . $message . "\n";
-    $body .= "--------------------------------------------------\n";
-    $body .= "早めのご対応をお願いします。";
+    $additional_params = "-f " . "ezsvrl@gmail.com, 0520index@gmail.com";
 
-$from_email = "postmaster@rescue-samurai.com";
-$header  = "From: " . $from_email . "\r\n";
-$header .= "Cc: \r\n";
-$header .= "Reply-To: " . $mail . "\r\n";
-$header .= "X-Mailer: PHP/" . phpversion();
-
-$additional_params = "-f " . $from_email;
-
-mb_send_mail($to, $subject, $body, $header, $additional_params);
-    // --- ここまで ---
-
-// --- ここから お客様への自動返信メール送信（BCCに従業員） ---
+// --- お客様への自動返信メール送信（BCCに運営陣） ---
 
     $subject_user = "【害虫レスキュー侍】お問い合わせを承りました";
     
