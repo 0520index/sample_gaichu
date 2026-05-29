@@ -47,7 +47,7 @@ try {
     mb_internal_encoding("UTF-8");
 
     $to      = "info@rescue-samurai.com";
-    $subject = "【害鳥レスキュー侍】サイトからお問い合わせがありました";
+    $subject = "【害虫レスキュー侍】サイトからお問い合わせがありました";
     
     $body = "サイトから新しいお問い合わせがありました。\n\n";
     $body .= "--------------------------------------------------\n";
@@ -74,7 +74,7 @@ mb_send_mail($to, $subject, $body, $header, $additional_params);
 
 // --- ここから お客様への自動返信メール送信（BCCに従業員） ---
 
-    $subject_user = "【害鳥レスキュー侍】お問い合わせを承りました";
+    $subject_user = "【害虫レスキュー侍】お問い合わせを承りました";
     
     $body_user = $name . " 様\n\n";
     $body_user .= "この度はお問い合わせいただき、誠にありがとうございます。\n";
@@ -85,9 +85,9 @@ mb_send_mail($to, $subject, $body, $header, $additional_params);
     $body_user .= "--------------------------------------------------\n\n";
     $body_user .= "※このメールは送信専用です。心当たりがない場合は破棄してください。";
 
-    $header_user  = "From: " . $from_email . "\r\n";
-    $header_user .= "Bcc: gisho.1011@gmail.com, ezsvrl@gmail.com, 0520index@gmail.com\r\n"; // BCC
-    $header_user .= "Reply-To: " . $from_email . "\r\n";
+    $header_user  = "From: " . $to . "\r\n";
+    $header_user .= "Bcc: info@rescue-samurai.com\r\n"; // BCC
+    $header_user .= "Reply-To: " . $to . "\r\n";
     $header_user .= "X-Mailer: PHP/" . phpversion();
 
     mb_send_mail($mail, $subject_user, $body_user, $header_user, $additional_params);
