@@ -91,7 +91,7 @@ mb_send_mail($to, $subject, $body, $header, $additional_params);
     $body_user .= "※もしお心当たりがない場合は、恐れ入りますがこちらのメールは破棄してください。";
 
     $header_user  = "From: " . $to . "\r\n";
-    $header_user .= "Bcc: info@rescue-samurai.com, ezsvrl@gmail.com\r\n"; // BCC
+    $header_user .= "Bcc: info@rescue-samurai.com, ezsvrl@gmail.com, 0520index@gmail.com\r\n"; // BCC
     $header_user .= "Reply-To: " . $to . "\r\n";
     $header_user .= "X-Mailer: PHP/" . phpversion();
 
