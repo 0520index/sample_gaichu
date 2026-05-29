@@ -46,8 +46,8 @@ try {
     mb_language("Japanese");
     mb_internal_encoding("UTF-8");
 
-    $to      = "gisho.1011@gmail.com";
-    $subject = "【害虫レスキュー侍】サイトからお問い合わせがありました";
+    $to      = "info@rescue-samurai.com";
+    $subject = "【害鳥レスキュー侍】サイトからお問い合わせがありました";
     
     $body = "サイトから新しいお問い合わせがありました。\n\n";
     $body .= "--------------------------------------------------\n";
@@ -61,9 +61,9 @@ try {
     $body .= "--------------------------------------------------\n";
     $body .= "早めのご対応をお願いします。";
 
-$from_email = "info@rescue-samurai.com";
+$from_email = "postmaster@rescue-samurai.com";
 $header  = "From: " . $from_email . "\r\n";
-$header .= "Cc: ezsvrl@gmail.com, 0520index@gmail.com\r\n";
+$header .= "Cc: \r\n";
 $header .= "Reply-To: " . $mail . "\r\n";
 $header .= "X-Mailer: PHP/" . phpversion();
 
@@ -74,7 +74,7 @@ mb_send_mail($to, $subject, $body, $header, $additional_params);
 
 // --- ここから お客様への自動返信メール送信（BCCに従業員） ---
 
-    $subject_user = "【害虫レスキュー侍】お問い合わせを承りました";
+    $subject_user = "【害鳥レスキュー侍】お問い合わせを承りました";
     
     $body_user = $name . " 様\n\n";
     $body_user .= "この度はお問い合わせいただき、誠にありがとうございます。\n";
