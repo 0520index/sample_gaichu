@@ -81,12 +81,17 @@ mb_send_mail($to, $subject, $body, $header, $additional_params);
     $body_user .= "以下の内容で送信を承りました。担当者より改めてご連絡いたします。\n\n";
     $body_user .= "--------------------------------------------------\n";
     $body_user .= "【お名前】: " . $name . "\n";
-    $body_user .= "【お問い合わせ内容】: \n" . $message . "\n";
-    $body_user .= "--------------------------------------------------\n\n";
-    $body_user .= "※このメールは送信専用です。心当たりがない場合は破棄してください。";
+    $body_user .= "【電話番号】: " . $tel . "\n";
+    $body_user .= "【メール】: " . $mail . "\n";
+    $body_user .= "【〒】: " . $zip . "\n";
+    $body_user .= "【住所】: " . $address . "\n";
+    $body_user .= "【鳥の種類】: " . $type . "\n";
+    $body_user .= "【内容】: \n" . $message . "\n";
+    $body_user .= "--------------------------------------------------\n";
+    $body_user .= "※もしお心当たりがない場合は、恐れ入りますがこちらのメールは破棄してください。";
 
     $header_user  = "From: " . $to . "\r\n";
-    $header_user .= "Bcc: info@rescue-samurai.com\r\n"; // BCC
+    $header_user .= "Bcc: info@rescue-samurai.com, ezsvrl@gmail.com\r\n"; // BCC
     $header_user .= "Reply-To: " . $to . "\r\n";
     $header_user .= "X-Mailer: PHP/" . phpversion();
 
