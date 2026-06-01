@@ -1153,20 +1153,6 @@ h2.title-risk {
     background: linear-gradient(180deg, #000000 0%, hsla(240, 23%, 15%, 0.87) 100%);
 }
 
-.compare.compare--ref::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        radial-gradient(ellipse 80% 50% at 50% 35%, rgba(255, 255, 255, 0.06), transparent 60%),
-        repeating-linear-gradient(-12deg,
-            transparent,
-            transparent 40px,
-            rgba(255, 255, 255, 0.02) 40px,
-            rgba(255, 255, 255, 0.02) 41px);
-    pointer-events: none;
-}
-
 .compare.compare--ref .comparison-table {
     position: relative;
     z-index: 1;
@@ -1284,17 +1270,6 @@ h2.title-risk {
     padding: 30px 18px;
     text-align: center;
     background: var(--surface);
-}
-
-.payment-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 140px;
-    background: linear-gradient(180deg, rgba(58, 138, 138, 0.14) 0%, transparent 100%);
-    pointer-events: none;
 }
 
 .payment-lead {
