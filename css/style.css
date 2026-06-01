@@ -906,9 +906,9 @@ body.menu-open {
 
 .section--map {
     background:
-        radial-gradient(135% 120% at 8% 0%, rgba(201, 164, 92, 0.24) 0%, rgba(201, 164, 92, 0) 52%),
-        radial-gradient(128% 112% at 100% 100%, rgba(120, 200, 190, 0.2) 0%, rgba(120, 200, 190, 0) 60%),
-        linear-gradient(150deg, #07131a 0%, #0f2630 48%, #0b2a2c 100%);
+    radial-gradient(135% 120% at 8% 0%, rgba(178, 12, 28, 0.34) 0%, rgba(178, 12, 28, 0) 52%),
+    radial-gradient(128% 112% at 100% 100%, rgba(206, 213, 223, 0.24) 0%, rgba(206, 213, 223, 0) 60%),
+    linear-gradient(150deg, #08090d 0%, #151821 48%, #22090f 100%);
 }
 
 .section--map::before {
@@ -1142,7 +1142,7 @@ h2.title-risk {
 
 /* Features */
 .features {
-    background: linear-gradient(155deg, #221838 0%, #1c1d40 50%, #182246 100%);
+    background: linear-gradient(155deg, #221e25 0%, #444450 50%, #9597a0 100%);
     color: #fff;
 }
 
@@ -1166,7 +1166,7 @@ h2.title-risk {
 
 .feature-card:hover {
     background: rgba(255, 255, 255, 0.11);
-    border-color: rgba(212, 160, 18, 0.35);
+    border-color: rgb(255, 205, 69);
 }
 
 .feature-card:last-child {
@@ -1177,8 +1177,8 @@ h2.title-risk {
     margin: 0 0 6px;
     font-size: 0.72rem;
     font-weight: 800;
-    color: var(--dark);
-    background: var(--brand);
+    color: #fff;
+    background: #e60012;
     display: inline-block;
     padding: 4px 10px;
     border-radius: 6px;
@@ -1212,7 +1212,7 @@ h2.title-risk {
 .compare.compare--ref {
     padding-top: 48px;
     padding-bottom: 48px;
-    background: linear-gradient(180deg, #15203f 0%, #3a4360 100%);
+    background: linear-gradient(180deg, #000000 0%, hsl(240, 7%, 40%) 100%);
 }
 
 .compare.compare--ref::before {
