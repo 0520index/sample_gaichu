@@ -1,6 +1,30 @@
-* {
-    margin: 0;
-    padding: 0;
+:root {
+    --page-bg: #e9ecf2;
+    --surface: #ffffff;
+    --text: #1a1f26;
+    --text-muted: #5c6573;
+    --brand: #b91c1c;
+    --brand-dark: #991b1b;
+    --brand-soft: #fef2f2;
+    --dark: #1a2230;
+    --dark-soft: #252d3d;
+    --accent-gold: #d4a012;
+    --accent-gold-soft: #fff7e0;
+    --line-green: #06b350;
+    --line-green-dark: #059645;
+    --teal: #0d9488;
+    --shadow: 0 4px 24px rgba(26, 31, 38, 0.12), 0 1px 3px rgba(26, 31, 38, 0.08);
+    --radius: 12px;
+    --radius-lg: 18px;
+    --font: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
+    --site-header-height: 6.25rem;
+    --watermark-on-light: rgba(185, 28, 28, 0.12);
+    --watermark-on-dark: rgba(255, 255, 255, 0.08);
+}
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -13,12 +37,15 @@ h3 {
 }
 
 html {
-    scroll-padding-top: 120px;
-    scroll-behavior: smooth;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
-    line-height: 1.6;
+    margin: 0;
+    font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", Meiryo, sans-serif;
+    ;
+    line-height: 1.65;
     color: #333;
     background-color: #f9f9f9;
 }
@@ -29,41 +56,45 @@ body {
     padding: 0 20px;
 }
 
-.header {
-    background-color: #ffffff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    border-bottom: 3px solid #b32d2d;
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: var(--surface);
+    border-bottom: 1px solid #e8ecf1;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 20;
+    padding: 0 56px 0 20px;
+    min-height: var(--site-header-height);
+    transition: transform 0.2s ease;
+    will-change: transform;
 }
 
-.header-flex {
+.site-header.is-hide {
+    transform: translateY(-100%);
+}
+
+.site-header.is-open {
+    transform: translateY(0) !important;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    color: var(--brand);
+
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+    margin: 0;
 }
 
 .header-logo-area {
     flex: 1;
     min-width: 0;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 0px;
-    margin: 0;
-}
-
-.logo a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    gap: 15px;
 }
 
 .logo-main-link {
@@ -74,8 +105,9 @@ body {
 .logo-main-link img {
     height: auto;
     display: block;
-    max-height: none;
-    width: 329px;
+
+    max-width: 220px;
+    width: 200px;
 }
 
 .logo-tel-link {
@@ -93,7 +125,7 @@ body {
     display: block;
     max-height: none;
     width: 183px;
-    margin-top: 40px;
+    margin-top: 0px;
 }
 
 .logo a:hover img {
@@ -146,73 +178,124 @@ body {
 }
 
 /* ==========================================
-   1. ハンバーガーボタン（三本線）
+   Mobile Menu System - Overlay Type
    ========================================== */
+
+/* 1. ハンバーガーボタン（ヘッダー外配置 → メニュー前面に×を表示可能） */
 .menu-btn {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-around !important;
-    position: absolute;
-    right: 20px;
-    top: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: fixed;
+    top: calc(var(--site-header-height) / 2);
+    right: max(20px, calc(50% - 250px + 20px));
     transform: translateY(-50%);
-    width: 30px !important;
-    height: 25px !important;
-    background: transparent !important;
-    border: none !important;
-    padding: 0 !important;
-    z-index: 10001 !important;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    padding: 0;
+    z-index: 10001;
     cursor: pointer;
+    transition: transform 0.2s ease, top 0.3s ease-in-out, right 0.3s ease-in-out;
+}
+
+.menu-btn.is-hide:not(.open) {
+    transform: translateY(calc(-50% - var(--site-header-height)));
 }
 
 .menu-btn span {
-    display: block !important;
-    width: 100% !important;
-    height: 3px !important;
-    background-color: #333 !important;
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #333;
     border-radius: 3px;
     transition: all 0.3s ease-in-out;
     position: relative;
 }
 
 .menu-btn.open {
-    position: fixed !important;
-    top: 25px !important;
-    right: 25px !important;
-    transform: none !important;
+    top: 25px;
+    right: max(25px, calc(50% - 250px + 25px));
+    transform: none;
 }
 
 .menu-btn.open span:nth-child(1) {
     top: 8px;
-    transform: rotate(45deg) !important;
+    transform: rotate(45deg);
 }
 
 .menu-btn.open span:nth-child(2) {
-    opacity: 0 !important;
+    opacity: 0;
     transform: translateX(-20px);
 }
 
 .menu-btn.open span:nth-child(3) {
     top: -8px;
-    transform: rotate(-45deg) !important;
+    transform: rotate(-45deg);
 }
 
-/* ==========================================
-   2. メニュー本体（スライドパネル）
-   ========================================== */
+/* 2. オーバーレイ背景 */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 9998;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-overlay.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* 3. メニューパネル */
 .sp-nav {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 320px;
     max-width: 85%;
     height: 100vh;
+    height: 100dvh;
     background: #fff;
-    z-index: 10000;
-    transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    padding: 0;
-    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+
+    /* 閉状態 */
+    transform: translate3d(100%, 0, 0);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    /* アニメーション */
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* スクロール */
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    /* シャドウ - 閉状態では非表示 */
+    box-shadow: none;
+}
+
+.sp-nav.active {
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    /* 開状態でのみシャドウ表示 */
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
 }
 
 .sp-nav::before {
@@ -225,28 +308,7 @@ body {
     border-bottom: 1px solid #eee;
 }
 
-.sp-nav.active {
-    right: 0;
-}
-
-.nav-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    visibility: hidden;
-    transition: 0.4s;
-    z-index: 9999;
-}
-
-.nav-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-/* ==========================================
-   3. メニュー内リンク & アコーディオン
-   ========================================== */
+/* 4. メニューリスト */
 .sp-nav ul {
     list-style: none;
     padding: 0;
@@ -268,7 +330,7 @@ body {
     font-weight: bold;
     font-size: 1.05rem;
     min-height: 60px;
-    transition: 0.3s;
+    transition: background-color 0.3s;
 }
 
 .sp-nav a:active {
@@ -284,7 +346,7 @@ body {
     height: 100%;
     background: #b32d2d;
     opacity: 0;
-    transition: 0.3s;
+    transition: opacity 0.3s;
 }
 
 .sp-nav li:hover::before,
@@ -299,20 +361,22 @@ body {
     font-weight: bold;
 }
 
+/* 5. アコーディオンメニュー */
 .has-child>.parent-link::after {
-    content: "＋" !important;
-    color: #b32d2d !important;
+    content: "＋";
+    color: #b32d2d;
     font-size: 1.1rem;
     font-weight: bold;
+    transition: transform 0.3s, color 0.3s;
 }
 
 .has-child.active>.sub-menu {
-    display: block !important;
+    display: block;
 }
 
 .has-child.active>.parent-link::after {
     transform: rotate(45deg);
-    color: #333 !important;
+    color: #333;
 }
 
 .sub-menu {
@@ -322,47 +386,58 @@ body {
 }
 
 .sub-menu a {
-    padding: 15px 25px 15px 45px !important;
-    font-weight: normal !important;
-    font-size: 0.95rem !important;
+    padding: 15px 25px 15px 45px;
+    font-weight: normal;
+    font-size: 0.95rem;
     color: #555;
     min-height: 45px;
 }
 
 .sub-menu a::after {
-    content: "〉" !important;
-    color: #eee !important;
+    content: "〉";
+    color: #ccc;
 }
 
+/* 6. CTAボタン */
 .sp-nav .sp-nav-cta {
-    background: #b32d2d !important;
-    color: #fff !important;
-    margin: 20px 25px !important;
-    padding: 18px !important;
-    border-radius: 6px !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    font-size: 1.15rem !important;
-    box-shadow: 0 4px 15px rgba(179, 45, 45, 0.4) !important;
-    transition: transform 0.2s, background 0.3s !important;
+    background: #b32d2d;
+    color: #fff;
+    margin: 20px 25px;
+    padding: 18px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 15px rgba(179, 45, 45, 0.4);
+    transition: transform 0.2s, background 0.3s;
 }
 
 .sp-nav .sp-nav-cta::after {
-    display: none !important;
+    display: none;
 }
 
 .sp-nav .sp-nav-cta:active {
     transform: scale(0.98);
-    background: #8e2424 !important;
+    background: #8e2424;
 }
 
-.sp-nav li:last-child a::after {
+/* メインメニューの最後の項目のみ対象 */
+.sp-nav>ul>li:last-child a::after {
     display: none;
 }
 
-.sp-nav li:last-child::before {
+.sp-nav>ul>li:last-child::before {
     display: none;
+}
+
+/* 7. Body固定（iOS Safari対応） */
+body.menu-open {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
 }
 
 /* ==========================================
@@ -377,9 +452,6 @@ body.menu-open {
 }
 
 @media (max-width: 768px) {
-    body {
-        padding-top: 70px;
-    }
 
     .logo {
         flex-direction: column;
