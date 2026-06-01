@@ -754,24 +754,6 @@ body.menu-open {
     border-radius: 8px;
 }
 
-.service-placeholder {
-    width: 100px;
-    height: 100px;
-    background: #f0f0f0;
-    border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    border: 2px solid #e0e0e0;
-}
-
-.service-placeholder-text {
-    color: #666;
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
 .service-intro-title {
     margin: 0 0 clamp(2px, 1vw, 6px);
     font-size: clamp(0.68rem, 3vw, 1rem);
@@ -789,19 +771,6 @@ body.menu-open {
     font-size: clamp(0.58rem, 2.4vw, 0.8rem);
     color: var(--text-muted);
     line-height: 1.25;
-}
-
-/* Mid CTA */
-.btn--compact {
-    padding: 14px 32px;
-    font-size: 0.95rem;
-    max-width: 280px;
-    margin: 0 auto;
-}
-
-.btn--compact .btn__text {
-    font-size: 1rem;
-    font-weight: 800;
 }
 
 /* --------------------------------------------------------------------------
@@ -1829,13 +1798,6 @@ h2.title-risk {
 
 }
 
-.form-title {
-    white-space: nowrap;
-    text-align: center;
-    margin-bottom: 25px;
-    font-size: 1.5rem;
-}
-
 .form-group {
     margin-bottom: 20px;
 }
@@ -2051,15 +2013,6 @@ h2.title-risk {
 .site-footer {
     padding: 25px 35px;
     padding-bottom: 100px;
-    background: #111;
-    color: #888;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-}
-
-.main-footer {
-    padding: 25px 35px 25px;
     background: #111;
     color: #888;
     text-align: center;
