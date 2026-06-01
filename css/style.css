@@ -911,39 +911,8 @@ body.menu-open {
     linear-gradient(150deg, #08090d 0%, #151821 48%, #22090f 100%);
 }
 
-.section--map::before {
-    background: linear-gradient(180deg, rgba(224, 230, 237, 0.22) 0%, rgba(224, 230, 237, 0) 100%);
-}
-
 .section--dark.voices {
     background: linear-gradient(160deg, #16243c 0%, #133036 56%, #0f2e30 100%);
-}
-
-.section--dark.contact-banner {
-    background: linear-gradient(160deg, #0e2a28 0%, #11302b 52%, #16332a 100%);
-}
-
-.features::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 160px;
-    background: linear-gradient(180deg, rgba(124, 110, 210, 0.2) 0%, transparent 100%);
-    pointer-events: none;
-}
-
-#case-studies::before {
-    background: linear-gradient(180deg, rgba(96, 106, 184, 0.16) 0%, transparent 100%);
-}
-
-#steps::before {
-    background: linear-gradient(180deg, rgba(58, 132, 142, 0.15) 0%, transparent 100%);
-}
-
-#faq::before {
-    background: linear-gradient(180deg, rgba(42, 142, 122, 0.15) 0%, transparent 100%);
 }
 
 .section__watermark {
@@ -2417,22 +2386,6 @@ h2.title-risk {
 /* --------------------------------------------------------------------------
    Pricing / FAQ / Section CTA (SEO導線・最小スタイル)
    -------------------------------------------------------------------------- */
-.pricing-list {
-    list-style: none;
-    margin: 0 0 1rem;
-    padding: 0 1.25rem;
-}
-
-.pricing-list li {
-    padding: 0.5rem 0;
-    border-bottom: 1px solid #e8ecf1;
-    font-size: 0.95rem;
-}
-
-.pricing-list li:last-child {
-    border-bottom: none;
-}
-
 .faq-list {
     padding: 0 1rem;
 }
