@@ -1184,12 +1184,12 @@ body.menu-open {
     overflow-wrap: anywhere;
 }
 
-p.section__title.title-risk {
+h2.title-risk {
     margin-top: 20px;
-}
-
-p.section__title.title-risk::after {
-    display: none;
+    font-size: 1.2rem;
+    font-weight: 800;
+    line-height: 1.4;
+    text-align: center;
 }
 
 /* Features */
