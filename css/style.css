@@ -54,7 +54,6 @@ img {
     vertical-align: middle;
 }
 
-/* 横スクロール防止のための基本設定 */
 * {
     max-width: 100%;
 }
@@ -64,7 +63,6 @@ a {
     text-decoration: none;
 }
 
-/* 外枠：PCで500pxカラム＋浮遊シャドウ */
 .page-shell {
     max-width: 500px;
     margin: 0 auto;
@@ -76,7 +74,6 @@ a {
 
 @media (min-width: 501px) {
     .page-shell {
-        /* overflow: hidden だと子要素の sticky が無効になるため clip のみ */
         overflow-x: clip;
         box-shadow: 0 20px 60px rgba(26, 31, 38, 0.15), 0 8px 24px rgba(26, 31, 38, 0.1);
         border: 1px solid rgba(255, 255, 255, 0.8);
@@ -254,20 +251,16 @@ a {
     background: #fff;
     z-index: 9999;
 
-    /* 閉状態 */
     transform: translate3d(100%, 0, 0);
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
 
-    /* アニメーション */
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* スクロール */
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 
-    /* シャドウ - 閉状態では非表示 */
     box-shadow: none;
 }
 
@@ -276,7 +269,7 @@ a {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
-    /* 開状態でのみシャドウ表示 */
+
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.15);
 }
 
@@ -426,7 +419,6 @@ body.menu-open {
    Hero
    -------------------------------------------------------------------------- */
 .hero {
-    /* TOP は一層目立つ主役カラー：上部に侍ゴールドの光彩、鮮烈なクリムゾンで最も強い印象に */
     background:
         radial-gradient(120% 95% at 50% -18%, rgba(245, 191, 75, 0.5) 0%, rgba(245, 191, 75, 0) 56%),
         radial-gradient(130% 120% at 100% 118%, rgba(120, 16, 22, 0.75) 0%, rgba(120, 16, 22, 0) 60%),
@@ -437,7 +429,6 @@ body.menu-open {
     overflow: hidden;
 }
 
-/* 画像とタイトルのトップセクション */
 .hero__top {
     display: flex;
     align-items: center;
@@ -931,8 +922,6 @@ body.menu-open {
 .section--dark.contact-banner {
     background: linear-gradient(160deg, #0e2a28 0%, #11302b 52%, #16332a 100%);
 }
-
-/* 明るい背景セクション：ウォーターマーク上部に薄い色面を敷く */
 
 .features::before {
     content: "";
@@ -1772,7 +1761,6 @@ h2.title-risk {
     color: var(--brand-dark);
 }
 
-/* ダーク背景上での見出し可読性を確保 */
 .area-map .section__title {
     color: #f6f8f5;
 }
