@@ -43,6 +43,9 @@ body {
     color: var(--text);
     background: var(--page-bg);
     line-height: 1.65;
+    /* iOS Safari での横スクロール防止 */
+    overscroll-behavior-x: none;
+    -webkit-overflow-scrolling: touch;
 }
 
 img {
@@ -54,12 +57,6 @@ img {
 /* 横スクロール防止のための基本設定 */
 * {
     max-width: 100%;
-}
-
-/* iOS Safari での横スクロール防止 */
-body {
-    overscroll-behavior-x: none;
-    -webkit-overflow-scrolling: touch;
 }
 
 a {
@@ -124,19 +121,6 @@ a {
     align-items: flex-start;
     gap: 0px;
     margin: 0;
-}
-
-.header-contact {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--text-muted);
-}
-
-.header-contact__icon {
-    font-size: 1rem;
 }
 
 .header-logo-area {
@@ -446,7 +430,7 @@ body.menu-open {
     background:
         radial-gradient(120% 95% at 50% -18%, rgba(245, 191, 75, 0.5) 0%, rgba(245, 191, 75, 0) 56%),
         radial-gradient(130% 120% at 100% 118%, rgba(120, 16, 22, 0.75) 0%, rgba(120, 16, 22, 0) 60%),
-        linear-gradient(165deg, #f02230 0%, #d8121f 36%, var(--brand) 68%, var(--brand-dark) 100%);
+        linear-gradient(var(--brand) 68%, var(--brand-dark) 100%);
     color: #fff;
     padding: 32px 18px 32px;
     position: relative;
@@ -462,29 +446,6 @@ body.menu-open {
 }
 
 /* Hero Top - 横レイアウト */
-.hero-top {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 0;
-    position: relative;
-    margin-bottom: 24px;
-}
-
-.hero-image {
-    width: 35%;
-    flex-shrink: 0;
-    aspect-ratio: 1;
-    background: #f0f0f0;
-    border-radius: 999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 4px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-    transform: translateY(-15px);
-    margin-top: -8px;
-}
 
 .hero__img--actual {
     width: 50%;
@@ -507,14 +468,6 @@ body.menu-open {
     object-fit: cover;
 }
 
-.placeholder-text {
-    color: #666;
-    font-size: 0.75rem;
-    font-weight: 500;
-    text-align: center;
-    line-height: 1.2;
-}
-
 .hero-title {
     margin-left: -15px;
     position: relative;
@@ -524,10 +477,6 @@ body.menu-open {
     margin-bottom: 0;
     flex: 1;
     padding-left: 10px;
-}
-
-
-.hero-title {
     font-size: 1.8rem;
     font-weight: 900;
     line-height: 0.9;
@@ -562,13 +511,6 @@ body.menu-open {
 @media (min-width: 375px) {
     .hero-title {
         font-size: 2.2rem;
-    }
-
-    .hero-image {
-        width: 38%;
-    }
-
-    .hero-title {
         margin-left: -80px;
     }
 }
@@ -584,24 +526,12 @@ body.menu-open {
         margin-left: -10px;
         font-size: 1.6rem;
     }
-
-    .hero-image {
-        width: 32%;
-    }
 }
 
 @media (max-width: 320px) {
     .hero-title {
         margin-left: -8px;
         font-size: 1.4rem;
-    }
-
-    .hero-image {
-        width: 30%;
-    }
-
-    .placeholder-text {
-        font-size: 0.65rem;
     }
 }
 
@@ -974,23 +904,15 @@ body.menu-open {
     overflow: hidden;
 }
 
-.section--brand {
-    background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
-    color: #fff;
-}
-
-/* お困りごと：ヒーローの赤を受け継ぐ深い血のワインカラー（流れ① 暖色） */
 .section--sample {
     background: linear-gradient(160deg, #3a0e12 0%, #45111a 45%, #341526 100%);
     color: #fff;
 }
 
-/* 害虫ギャラリー：ワインから紫（プラム）へ移行（流れ②） */
 .pests-gallery {
     background: linear-gradient(160deg, #2c1226 0%, #241738 56%, #1d1b36 100%);
 }
 
-/* 対応エリア：侍ゴールドの光を残しつつ寒色のティール／ネイビーへ（流れ⑥） */
 .section--map {
     background:
         radial-gradient(135% 120% at 8% 0%, rgba(201, 164, 92, 0.24) 0%, rgba(201, 164, 92, 0) 52%),
@@ -1002,27 +924,15 @@ body.menu-open {
     background: linear-gradient(180deg, rgba(224, 230, 237, 0.22) 0%, rgba(224, 230, 237, 0) 100%);
 }
 
-/* お客様の声：紺から落ち着いたティールへ（流れ⑤ 信頼・安心） */
 .section--dark.voices {
     background: linear-gradient(160deg, #16243c 0%, #133036 56%, #0f2e30 100%);
 }
 
-/* お問い合わせ：解決を象徴する深いティールグリーンで締め（流れ⑦ ゴール） */
 .section--dark.contact-banner {
     background: linear-gradient(160deg, #0e2a28 0%, #11302b 52%, #16332a 100%);
 }
 
 /* 明るい背景セクション：ウォーターマーク上部に薄い色面を敷く */
-.section:not(.section--dark):not(.section--brand):not(.compare--ref):not(.features)::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 140px;
-    background: linear-gradient(180deg, var(--brand-soft) 0%, transparent 100%);
-    pointer-events: none;
-}
 
 .features::before {
     content: "";
@@ -1035,8 +945,6 @@ body.menu-open {
     pointer-events: none;
 }
 
-/* 明るいセクションの上部トーンも、上から下への寒色への流れに同調させる
-   （ID指定で汎用オーバーレイより優先度を確保） */
 #case-studies::before {
     background: linear-gradient(180deg, rgba(96, 106, 184, 0.16) 0%, transparent 100%);
 }
@@ -1065,8 +973,7 @@ body.menu-open {
     user-select: none;
 }
 
-.section__watermark--light,
-.section__watermark--on-brand {
+.section__watermark--light {
     color: var(--watermark-on-dark);
 }
 
@@ -1091,8 +998,7 @@ body.menu-open {
     border-radius: 2px;
 }
 
-.section__title--light,
-.section__title--on-brand {
+.section__title--light {
     color: #fff;
 }
 
@@ -1247,7 +1153,6 @@ h2.title-risk {
 
 /* Features */
 .features {
-    /* 選ばれる理由：プラムから藍（インディゴ）へ（流れ③ 信頼への転換点） */
     background: linear-gradient(155deg, #221838 0%, #1c1d40 50%, #182246 100%);
     color: #fff;
 }
@@ -1284,7 +1189,7 @@ h2.title-risk {
     font-size: 0.72rem;
     font-weight: 800;
     color: var(--dark);
-    background: var(--brand-dark);
+    background: var(--brand);
     display: inline-block;
     padding: 4px 10px;
     border-radius: 6px;
@@ -1318,7 +1223,6 @@ h2.title-risk {
 .compare.compare--ref {
     padding-top: 48px;
     padding-bottom: 48px;
-    /* 他社比較：藍から鋼スレートへ（流れ④） */
     background: linear-gradient(180deg, #15203f 0%, #3a4360 100%);
 }
 
@@ -1444,31 +1348,6 @@ h2.title-risk {
     color: #555;
     font-size: 14px;
     font-weight: bold;
-}
-
-.compare-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.82rem;
-    min-width: 280px;
-}
-
-.compare-table th,
-.compare-table td {
-    border: 1px solid #dde2ea;
-    padding: 12px 10px;
-    vertical-align: top;
-}
-
-.compare-table thead th {
-    background: #f4f6f9;
-    font-weight: 800;
-}
-
-.compare-table tbody th {
-    background: #fafbfc;
-    text-align: left;
-    font-weight: 700;
 }
 
 /* payment */
@@ -1792,15 +1671,11 @@ h2.title-risk {
     color: var(--text-muted);
 }
 
-.steps__infographic {
-    border-radius: var(--radius);
-    border: 1px solid #dde2ea;
-}
-
 /* Area */
 .area-map__lead {
     margin-bottom: 24px;
     line-height: 1.75;
+    color: rgba(236, 241, 248, 0.88);
 }
 
 .area-map__lead strong {
@@ -1897,32 +1772,14 @@ h2.title-risk {
     color: var(--brand-dark);
 }
 
-.area-map__lead {
-    color: rgba(236, 241, 248, 0.88);
-}
-
-.area-map__lead strong {
-    color: #e8d1a3;
-}
-
 /* ダーク背景上での見出し可読性を確保 */
 .area-map .section__title {
     color: #f6f8f5;
 }
 
-.area-map .section__title::after {
-    background: var(--accent-gold);
-}
-
 .area-map .section__watermark {
     color: var(--watermark-on-dark);
 }
-
-/* .area-map__img {
-    margin-top: 20px;
-    border-radius: var(--radius);
-    border: 1px solid #dde2ea;
-} */
 
 .area-map .area-card {
     background: linear-gradient(145deg, rgba(22, 29, 42, 0.84) 0%, rgba(15, 22, 34, 0.94) 100%);
@@ -1972,14 +1829,6 @@ h2.title-risk {
 /* Contact banner */
 .contact-banner .section__title {
     margin-bottom: 20px;
-}
-
-.contact-banner__note {
-    margin: 16px 0 0;
-    font-size: 0.72rem;
-    color: rgba(255, 255, 255, 0.55);
-    text-align: center;
-    line-height: 1.5;
 }
 
 /* Contact form */
@@ -2594,23 +2443,6 @@ h2.title-risk {
 
 .pricing-list li:last-child {
     border-bottom: none;
-}
-
-.section-cta {
-    margin: 1.25rem 0 0;
-    padding: 0 1.25rem 0.5rem;
-    text-align: center;
-    font-size: 0.9rem;
-}
-
-.section-cta a {
-    color: var(--brand);
-    text-decoration: underline;
-    text-underline-offset: 3px;
-}
-
-.section-cta--light a {
-    color: #fff;
 }
 
 .faq-list {
