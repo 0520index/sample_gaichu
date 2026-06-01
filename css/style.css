@@ -442,7 +442,11 @@ body.menu-open {
    Hero
    -------------------------------------------------------------------------- */
 .hero {
-    background: linear-gradient(165deg, var(--brand) 0%, var(--brand-dark) 55%, #7f1d1d 100%);
+    /* TOP は一層目立つ主役カラー：上部に侍ゴールドの光彩、鮮烈なクリムゾンで最も強い印象に */
+    background:
+        radial-gradient(120% 95% at 50% -18%, rgba(245, 191, 75, 0.5) 0%, rgba(245, 191, 75, 0) 56%),
+        radial-gradient(130% 120% at 100% 118%, rgba(120, 16, 22, 0.75) 0%, rgba(120, 16, 22, 0) 60%),
+        linear-gradient(165deg, #f02230 0%, #d8121f 36%, var(--brand) 68%, var(--brand-dark) 100%);
     color: #fff;
     padding: 32px 18px 32px;
     position: relative;
@@ -884,7 +888,9 @@ body.menu-open {
    -------------------------------------------------------------------------- */
 .cta-block {
     padding: 36px 18px 40px;
-    background: var(--surface);
+    background: linear-gradient(180deg, #fff5f5 0%, var(--surface) 65%);
+    border-top: 3px solid var(--brand);
+    border-bottom: 2px solid rgba(185, 28, 28, 0.12);
 }
 
 .btn {
@@ -973,19 +979,41 @@ body.menu-open {
     color: #fff;
 }
 
+/* お困りごと：ヒーローの赤を受け継ぐ深い血のワインカラー（流れ① 暖色） */
+.section--sample {
+    background: linear-gradient(160deg, #3a0e12 0%, #45111a 45%, #341526 100%);
+    color: #fff;
+}
+
+/* 害虫ギャラリー：ワインから紫（プラム）へ移行（流れ②） */
+.pests-gallery {
+    background: linear-gradient(160deg, #2c1226 0%, #241738 56%, #1d1b36 100%);
+}
+
+/* 対応エリア：侍ゴールドの光を残しつつ寒色のティール／ネイビーへ（流れ⑥） */
 .section--map {
     background:
-        radial-gradient(135% 120% at 8% 0%, rgba(178, 12, 28, 0.34) 0%, rgba(178, 12, 28, 0) 52%),
-        radial-gradient(128% 112% at 100% 100%, rgba(206, 213, 223, 0.24) 0%, rgba(206, 213, 223, 0) 60%),
-        linear-gradient(150deg, #08090d 0%, #151821 48%, #22090f 100%);
+        radial-gradient(135% 120% at 8% 0%, rgba(201, 164, 92, 0.24) 0%, rgba(201, 164, 92, 0) 52%),
+        radial-gradient(128% 112% at 100% 100%, rgba(120, 200, 190, 0.2) 0%, rgba(120, 200, 190, 0) 60%),
+        linear-gradient(150deg, #07131a 0%, #0f2630 48%, #0b2a2c 100%);
 }
 
 .section--map::before {
     background: linear-gradient(180deg, rgba(224, 230, 237, 0.22) 0%, rgba(224, 230, 237, 0) 100%);
 }
 
+/* お客様の声：紺から落ち着いたティールへ（流れ⑤ 信頼・安心） */
+.section--dark.voices {
+    background: linear-gradient(160deg, #16243c 0%, #133036 56%, #0f2e30 100%);
+}
+
+/* お問い合わせ：解決を象徴する深いティールグリーンで締め（流れ⑦ ゴール） */
+.section--dark.contact-banner {
+    background: linear-gradient(160deg, #0e2a28 0%, #11302b 52%, #16332a 100%);
+}
+
 /* 明るい背景セクション：ウォーターマーク上部に薄い色面を敷く */
-.section:not(.section--dark):not(.section--brand):not(.compare--ref)::before {
+.section:not(.section--dark):not(.section--brand):not(.compare--ref):not(.features)::before {
     content: "";
     position: absolute;
     top: 0;
@@ -994,6 +1022,31 @@ body.menu-open {
     height: 140px;
     background: linear-gradient(180deg, var(--brand-soft) 0%, transparent 100%);
     pointer-events: none;
+}
+
+.features::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 160px;
+    background: linear-gradient(180deg, rgba(124, 110, 210, 0.2) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+/* 明るいセクションの上部トーンも、上から下への寒色への流れに同調させる
+   （ID指定で汎用オーバーレイより優先度を確保） */
+#case-studies::before {
+    background: linear-gradient(180deg, rgba(96, 106, 184, 0.16) 0%, transparent 100%);
+}
+
+#steps::before {
+    background: linear-gradient(180deg, rgba(58, 132, 142, 0.15) 0%, transparent 100%);
+}
+
+#faq::before {
+    background: linear-gradient(180deg, rgba(42, 142, 122, 0.15) 0%, transparent 100%);
 }
 
 .section__watermark {
@@ -1194,16 +1247,32 @@ h2.title-risk {
 
 /* Features */
 .features {
-    background: #f0f2f7;
+    /* 選ばれる理由：プラムから藍（インディゴ）へ（流れ③ 信頼への転換点） */
+    background: linear-gradient(155deg, #221838 0%, #1c1d40 50%, #182246 100%);
+    color: #fff;
+}
+
+.features .section__watermark {
+    color: var(--watermark-on-dark);
+}
+
+.features .section__title {
+    color: #fff;
 }
 
 .feature-card {
-    background: var(--surface);
+    background: rgba(255, 255, 255, 0.07);
     border-radius: var(--radius-lg);
     padding: 18px 16px 20px;
     margin-bottom: 16px;
-    box-shadow: 0 2px 12px rgba(26, 31, 38, 0.06);
-    border: 1px solid #e8ecf1;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.feature-card:hover {
+    background: rgba(255, 255, 255, 0.11);
+    border-color: rgba(212, 160, 18, 0.35);
 }
 
 .feature-card:last-child {
@@ -1214,8 +1283,8 @@ h2.title-risk {
     margin: 0 0 6px;
     font-size: 0.72rem;
     font-weight: 800;
-    color: #fff;
-    background: var(--brand);
+    color: var(--dark);
+    background: var(--brand-dark);
     display: inline-block;
     padding: 4px 10px;
     border-radius: 6px;
@@ -1225,19 +1294,20 @@ h2.title-risk {
     margin: 0 0 12px;
     font-size: 1.1rem;
     font-weight: 800;
+    color: #fff;
 }
 
 .feature-card img {
     width: 100%;
     border-radius: var(--radius);
     margin-bottom: 12px;
-    border: 1px solid #eef0f4;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .feature-card__text {
     margin: 0;
     font-size: 0.9rem;
-    color: var(--text-muted);
+    color: rgba(255, 255, 255, 0.78);
 }
 
 /* Compare */
@@ -1248,7 +1318,8 @@ h2.title-risk {
 .compare.compare--ref {
     padding-top: 48px;
     padding-bottom: 48px;
-    background: linear-gradient(180deg, #0e0e0e 0%, hsl(240, 7%, 40%) 100%);
+    /* 他社比較：藍から鋼スレートへ（流れ④） */
+    background: linear-gradient(180deg, #15203f 0%, #3a4360 100%);
 }
 
 .compare.compare--ref::before {
@@ -1406,7 +1477,7 @@ h2.title-risk {
     overflow: hidden;
     padding: 30px 18px;
     text-align: center;
-    background: #abc9f8ab;
+    background: var(--surface);
 }
 
 .payment-section::before {
@@ -1416,7 +1487,7 @@ h2.title-risk {
     left: 0;
     right: 0;
     height: 140px;
-    background: linear-gradient(180deg, var(--brand-soft) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(58, 138, 138, 0.14) 0%, transparent 100%);
     pointer-events: none;
 }
 
@@ -1832,6 +1903,19 @@ h2.title-risk {
 
 .area-map__lead strong {
     color: #e8d1a3;
+}
+
+/* ダーク背景上での見出し可読性を確保 */
+.area-map .section__title {
+    color: #f6f8f5;
+}
+
+.area-map .section__title::after {
+    background: var(--accent-gold);
+}
+
+.area-map .section__watermark {
+    color: var(--watermark-on-dark);
 }
 
 /* .area-map__img {
