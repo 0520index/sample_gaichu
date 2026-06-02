@@ -419,17 +419,44 @@ body.menu-open {
    Hero
    -------------------------------------------------------------------------- */
 .hero {
-    background-image:
-        linear-gradient(rgba(8, 8, 8, 0.200)),
-        url("../images/hero-banner-sp.webp");
-    background-size: cover;
-    background-repeat: no-repeat, no-repeat;
-    background-position: center, center;
     color: #fff;
-    min-height: clamp(680px, 175vw, 760px);
-    padding: 36px 18px 44px;
     position: relative;
-    overflow: hidden;
+}
+
+.hero__visual {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+}
+
+.hero__bg {
+    grid-column: 1;
+    grid-row: 1;
+    display: block;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+}
+
+.hero__visual::before {
+    content: "";
+    grid-column: 1;
+    grid-row: 1;
+    width: 100%;
+    aspect-ratio: 768 / 1431;
+    align-self: start;
+    background: linear-gradient(rgba(8, 8, 8, 0.200));
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero__visual-inner {
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 2;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 36px 18px 44px;
 }
 
 .hero__top {
