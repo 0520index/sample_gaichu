@@ -438,18 +438,6 @@ body.menu-open {
     z-index: 0;
 }
 
-.hero__visual::before {
-    content: "";
-    grid-column: 1;
-    grid-row: 1;
-    width: 100%;
-    aspect-ratio: 768 / 1431;
-    align-self: start;
-    background: linear-gradient(rgba(8, 8, 8, 0.200));
-    z-index: 1;
-    pointer-events: none;
-}
-
 .hero__visual-inner {
     grid-column: 1;
     grid-row: 1;
