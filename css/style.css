@@ -419,10 +419,12 @@ body.menu-open {
    Hero
    -------------------------------------------------------------------------- */
 .hero {
-    background:
-        radial-gradient(120% 95% at 50% -18%, rgba(245, 191, 75, 0.5) 0%, rgba(245, 191, 75, 0) 56%),
-        radial-gradient(130% 120% at 100% 118%, rgba(120, 16, 22, 0.75) 0%, rgba(120, 16, 22, 0) 60%),
-        linear-gradient(var(--brand) 68%, var(--brand-dark) 100%);
+    background-image:
+        linear-gradient(rgba(8, 8, 8, 0.200)),
+        url("../images/hero-banner-sp.webp");
+    background-size: cover;
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, center;
     color: #fff;
     padding: 32px 18px 32px;
     position: relative;
@@ -779,8 +781,6 @@ body.menu-open {
 .cta-block {
     padding: 36px 18px 40px;
     background: linear-gradient(180deg, #fff5f5 0%, var(--surface) 65%);
-    border-top: 3px solid var(--brand);
-    border-bottom: 2px solid rgba(185, 28, 28, 0.12);
 }
 
 .btn {
@@ -1464,7 +1464,7 @@ h2.title-risk {
     align-items: center;
     gap: 8px;
     padding: 16px 32px;
-    background: linear-gradient(135deg, var(--accent-gold) 0%, #b8860b 100%);
+    background: linear-gradient(140deg, #fbff17 50%, #fdee1de5 100%);
     border: none;
     border-radius: 50px;
     color: var(--dark);
@@ -1472,13 +1472,13 @@ h2.title-risk {
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 16px rgba(232, 176, 18, 0.3);
+    box-shadow: 0 4px 16px rgba(255, 187, 0, 0.404);
     min-width: 140px;
     justify-content: center;
 }
 
 .voice-more-btn:hover {
-    background: linear-gradient(135deg, #f4d03f 0%, var(--accent-gold) 100%);
+    background: linear-gradient(#ffd900e7);
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(232, 176, 18, 0.4);
 }
