@@ -1,12 +1,4 @@
 <?php
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception as PHPMailerException;
-
-require __DIR__ . '/mail_config.php';
-require __DIR__ . '/PHPMailer-7.1.1/src/Exception.php';
-require __DIR__ . '/PHPMailer-7.1.1/src/PHPMailer.php';
-require __DIR__ . '/PHPMailer-7.1.1/src/SMTP.php';
-
 $host     = 'mysql80.ez-tech.sakura.ne.jp'; // サーバー
 $dbname   = 'ez-tech_contact_db';       // データベース
 $user     = 'ez-tech_contact_db';               //ユーザ
@@ -24,6 +16,7 @@ try {
     $zip = trim($_POST['zip'] ?? '');
     $address = trim(($_POST['pref'] ?? '') . ($_POST['addr'] ?? ''));
     $type = $_POST['type'] ?? '';
+    $preferred_datetime = trim($_POST['preferred_datetime'] ?? '');
     $message = trim($_POST['message'] ?? '');
 
     if (empty($name) || empty($tel) || empty($mail) || empty($zip) || empty($address)) {
@@ -34,8 +27,8 @@ try {
         exit('メールアドレスの形式が正しくありません。');
     }
 
-    $sql = "INSERT INTO contact_data (name, tel, mail, zip, address, bird_type, message) 
-            VALUES (:name, :tel, :mail, :zip, :address, :type, :message)";
+    $sql = "INSERT INTO contact_data (name, tel, mail, zip, address, bird_type, preferred_datetime, message) 
+            VALUES (:name, :tel, :mail, :zip, :address, :type, :preferred_datetime, :message)";
     
     $stmt = $pdo->prepare($sql);
 
@@ -46,12 +39,20 @@ try {
         ':zip'     => $zip,
         ':address' => $address,
         ':type'    => $type,
+        ':preferred_datetime' => $preferred_datetime,
         ':message' => $message
     ]);
 
-    // --- お客様への自動返信メール送信（BCCに運営陣） ---
-    $subject_user = '【害虫レスキュー侍】お問い合わせを承りました';
+    mb_language("Japanese");
+    mb_internal_encoding("UTF-8");
 
+    $to      = "info@rescue-samurai.com";
+    $additional_params = "-f " . "ezsvrl@gmail.com, 0520index@gmail.com";
+
+// --- お客様への自動返信メール送信（BCCに運営陣） ---
+
+    $subject_user = "【害虫レスキュー侍】お問い合わせを承りました";
+    
     $body_user = $name . " 様\n\n";
     $body_user .= "この度はお問い合わせいただき、誠にありがとうございます。\n";
     $body_user .= "以下の内容で送信を承りました。担当者より改めてご連絡いたします。\n\n";
@@ -61,42 +62,19 @@ try {
     $body_user .= "【メール】: " . $mail . "\n";
     $body_user .= "【〒】: " . $zip . "\n";
     $body_user .= "【住所】: " . $address . "\n";
-    $body_user .= "【鳥の種類】: " . $type . "\n";
-    $body_user .= "【内容】: \n" . $message . "\n";
+    $body_user .= "【害虫の種類】: " . $type . "\n";
+    $body_user .= "【希望日時】: " . $preferred_datetime . "\n";
+    $body_user .= "【内容】: " . $message . "\n";
     $body_user .= "--------------------------------------------------\n";
     $body_user .= "※もしお心当たりがない場合は、恐れ入りますがこちらのメールは破棄してください。";
 
-    $mailer = new PHPMailer(true);
-    $mailer->CharSet = 'UTF-8';
-    $mailer->Encoding = 'base64';
+    $header_user  = "From: " . $to . "\r\n";
+    $header_user .= "Bcc: info@rescue-samurai.com, 31075hk@gmail.com\r\n"; // BCC
+    $header_user .= "Reply-To: " . $to . "\r\n";
+    $header_user .= "X-Mailer: PHP/" . phpversion();
 
-    if (MAIL_USE_SMTP) {
-        $mailer->isSMTP();
-        $mailer->Host = MAIL_SMTP_HOST;
-        $mailer->SMTPAuth = true;
-        $mailer->Username = MAIL_SMTP_USER;
-        $mailer->Password = MAIL_SMTP_PASS;
-        $mailer->SMTPSecure = MAIL_SMTP_SECURE;
-        $mailer->Port = MAIL_SMTP_PORT;
-    } else {
-        $mailer->isMail();
-    }
+    mb_send_mail($mail, $subject_user, $body_user, $header_user, $additional_params);
 
-    $mailer->setFrom(MAIL_FROM_EMAIL, MAIL_FROM_NAME);
-    $mailer->Sender = MAIL_FROM_EMAIL;
-    $mailer->addAddress($mail, $name);
-    foreach (MAIL_BCC as $bcc) {
-        $mailer->addBCC($bcc);
-    }
-    $mailer->addReplyTo(MAIL_FROM_EMAIL, MAIL_FROM_NAME);
-    $mailer->Subject = $subject_user;
-    $mailer->Body = $body_user;
-
-    try {
-        $mailer->send();
-    } catch (PHPMailerException $e) {
-        exit('メールの送信に失敗しました。お手数ですがお電話にてお問い合わせください。');
-    }
     // --- ここまで ---
 
     echo "<h1>送信完了</h1>";
