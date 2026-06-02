@@ -64,7 +64,7 @@ try {
     $body_user .= "【住所】: " . $address . "\n";
     $body_user .= "【害虫の種類】: " . $type . "\n";
     $body_user .= "【希望日時】: " . $preferred_datetime . "\n";
-    $body_user .= "【内容】: \n" . $message . "\n";
+    $body_user .= "【内容】: " . $message . "\n";
     $body_user .= "--------------------------------------------------\n";
     $body_user .= "※もしお心当たりがない場合は、恐れ入りますがこちらのメールは破棄してください。";
 
