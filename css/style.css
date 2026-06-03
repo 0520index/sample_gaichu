@@ -584,8 +584,7 @@ body.menu-open {
 /* Hero Sub Appeals */
 .hero__sub-appeals {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 12px;
+    gap: 5px;
     margin: 0 0 20px;
     padding: 0 18px;
 }
@@ -595,7 +594,7 @@ body.menu-open {
     align-items: center;
     gap: 8px;
     height: 100%;
-    min-height: 4.5rem;
+    min-height: 3.5rem;
     min-width: 0;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(8px);
@@ -620,12 +619,12 @@ body.menu-open {
 
 @media (max-width: 350px) {
     .hero__sub-appeals {
-        gap: 8px;
+        gap: 5px;
         padding: 0 12px;
     }
 
     .appeal-item {
-        min-height: 4rem;
+        min-height: 3.5rem;
         padding: 8px;
         font-size: 0.75rem;
     }
@@ -772,7 +771,7 @@ body.menu-open {
    -------------------------------------------------------------------------- */
 .cta-block {
     padding: 36px 18px 40px;
-    background: linear-gradient(180deg, #fff5f5 0%, var(--surface) 65%);
+    background: #2c2b2b;
 }
 
 .btn {
