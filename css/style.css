@@ -583,7 +583,7 @@ body.menu-open {
 .hero__sub-appeals {
     display: grid;
     gap: 5px;
-    margin: 0 0 20px;
+    margin: 0 0 10px;
     padding: 0 12px;
     line-height: 1.2;
 }
