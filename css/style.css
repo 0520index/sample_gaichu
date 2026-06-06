@@ -477,14 +477,14 @@ body.menu-open {
 }
 
 .hero-title {
-    margin-left: -15px;
+    margin-left: -85px;
     position: relative;
     z-index: 2;
     text-align: left;
     margin-top: 0;
     margin-bottom: 0;
     flex: 1;
-    padding-left: 10px;
+    padding-left: 28px;
     font-size: 1.8rem;
     font-weight: 900;
     line-height: 1.1;
@@ -516,29 +516,30 @@ body.menu-open {
     }
 }
 
-@media (min-width: 375px) {
+@media (max-width: 480px) {
     .hero-title {
-        font-size: 2.2rem;
+        font-size: 1.75rem;
         margin-left: -80px;
     }
 }
 
-@media (min-width: 420px) {
+@media (max-width: 420px) {
     .hero-title {
-        font-size: 2.4rem;
+        font-size: 1.7rem;
+        margin-left: -75px;
     }
 }
 
-@media (max-width: 350px) {
+@media (max-width: 375px) {
     .hero-title {
-        margin-left: -10px;
+        margin-left: -65px;
         font-size: 1.6rem;
     }
 }
 
 @media (max-width: 320px) {
     .hero-title {
-        margin-left: -8px;
+        margin-left: -60px;
         font-size: 1.4rem;
     }
 }
@@ -576,17 +577,14 @@ body.menu-open {
 .hero-title-line--urgent {
     color: #fff;
     text-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
-    font-size: 2rem;
-    text-box-edge: 2px rgba(255, 255, 255, 0.3);
-    -webkit-text-box-edge: 2px rgba(255, 255, 255, 0.3);
 }
 
 /* Hero Sub Appeals */
 .hero__sub-appeals {
     display: grid;
     gap: 5px;
-    margin: 0 0 20px;
-    padding: 0 18px;
+    margin: 0 0 12px;
+    padding: 0 12px;
 }
 
 .appeal-item {
@@ -594,15 +592,15 @@ body.menu-open {
     align-items: center;
     gap: 8px;
     height: 100%;
-    min-height: 3.5rem;
+    min-height: 1rem;
     min-width: 0;
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.25);
-    padding: 10px;
+    padding: 2px 10px;
     border-radius: 10px;
     text-align: left;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     font-weight: 600;
 }
 
@@ -619,13 +617,13 @@ body.menu-open {
 
 @media (max-width: 350px) {
     .hero__sub-appeals {
-        gap: 5px;
-        padding: 0 12px;
+        gap: 4px;
+        padding: 0 10px;
     }
 
     .appeal-item {
-        min-height: 3.5rem;
-        padding: 8px;
+        min-height: 2rem;
+        padding: 2px 8px;
         font-size: 0.75rem;
     }
 
