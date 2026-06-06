@@ -713,7 +713,7 @@ body.menu-open {
 .service-intro-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 8px 14px;
+    gap: 8px 8px;
     margin:0 auto;
     max-width: 400px;
 }
@@ -722,22 +722,17 @@ body.menu-open {
     text-align: center;
     background: var(--surface);
     border-radius: clamp(8px, 2vw, var(--radius));
-    padding: 0px 0px 4px;
     box-shadow: 0 4px 16px rgba(26, 31, 38, 0.08);
-    border: 1px solid rgba(212, 160, 18, 0.15);
+    border: 5px solid rgb(255, 255, 255);
     min-width: 0;
-}
-
-.service-intro-image {
-    margin-bottom: clamp(4px, 1.5vw, 10px);
 }
 
 .service-intro-image img {
     border-radius: 8px;
+    max-width: 95%;
 }
 
 .service-intro-title {
-    margin: 0 0 clamp(2px, 1vw, 6px);
     font-size: clamp(0.44rem, 3vw, 1rem);
     font-weight: 700;
     line-height: 1.2;
