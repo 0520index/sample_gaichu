@@ -636,15 +636,8 @@ body.menu-open {
     padding: 0 clamp(4px, 2vw, 8px);
 }
 
-.merit-circle {
-    aspect-ratio: 1;
-    background-color: #ffc400;
-    display: flex;
-    align-items: center;
-    border: 2px solid rgb(255, 255, 255);
-}
-
 .circle-content {
+    position: relative;
     color: #fff;
     text-align: center;
     font-weight: 700;
@@ -653,8 +646,28 @@ body.menu-open {
     box-sizing: border-box;
     padding: clamp(4px, 3cqi, 12px);
     line-height: 1.15;
+    overflow: hidden;
     overflow-wrap: anywhere;
     word-break: keep-all;
+    isolation: isolate;
+}
+
+.circle-content::before {
+    content: "";
+    position: absolute;
+    inset: 0 6px;
+    background-image: url("../images/gold-medal.webp");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: clamp(30px, 8vw, 56px);
+    opacity: 0.18;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.circle-content > * {
+    position: relative;
+    z-index: 1;
 }
 
 .merit-main {
