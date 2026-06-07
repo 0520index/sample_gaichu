@@ -638,7 +638,7 @@ body.menu-open {
 
 .circle-content {
     position: relative;
-    color: #fff;
+    color: #000000;
     text-align: center;
     font-weight: 700;
     width: 100%;
@@ -646,10 +646,8 @@ body.menu-open {
     box-sizing: border-box;
     padding: clamp(4px, 3cqi, 12px);
     line-height: 1.15;
-    overflow: hidden;
     overflow-wrap: anywhere;
     word-break: keep-all;
-    isolation: isolate;
 }
 
 .circle-content::before {
@@ -658,11 +656,8 @@ body.menu-open {
     inset: 0 6px;
     background-image: url("../images/gold-medal.webp");
     background-repeat: no-repeat;
-    background-position: center bottom;
-    background-size: clamp(30px, 8vw, 56px);
-    opacity: 0.18;
     z-index: 0;
-    pointer-events: none;
+    background-size: cover;
 }
 
 .circle-content > * {
@@ -680,7 +675,7 @@ body.menu-open {
     display: block;
     font-size: clamp(0.4rem, 2.5vw, 1.1rem);
     margin: clamp(2px, 0.5vw, 4px) 0;
-    color: #1a2230;
+    color: #ff0000;
 }
 
 .merit-sub {
