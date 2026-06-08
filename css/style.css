@@ -681,14 +681,14 @@ body.menu-open {
 
 .merit-main {
     display: block;
-    font-size: clamp(0.5rem, 7cqi, 0.72rem);
+    font-size: clamp(0.575rem, 7cqi, 0.72rem);
     opacity: 0.9;
     margin-top: -3%;
 }
 
 .merit-price {
     display: block;
-    font-size: clamp(0.6rem, 8cqi, 0.9rem);
+    font-size: clamp(0.625rem, 8cqi, 0.9rem);
     margin: clamp(1px, 0.8cqi, 3px) 0;
     color: #ff0000;
 }
