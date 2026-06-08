@@ -636,16 +636,27 @@ body.menu-open {
     padding: 0 clamp(4px, 2vw, 8px);
 }
 
+.merit-circle {
+    min-width: 0;
+    container-type: inline-size;
+}
+
 .circle-content {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 1;
+    width: 100%;
+    max-width: 100%;
     color: #000000;
     text-align: center;
     font-weight: 700;
-    width: 100%;
-    max-width: 100%;
     box-sizing: border-box;
-    padding: clamp(4px, 3cqi, 12px);
-    line-height: 1.15;
+    padding: 20% 20% 28%;
+    line-height: 1.1;
+    overflow: hidden;
     overflow-wrap: anywhere;
     word-break: keep-all;
 }
@@ -653,57 +664,35 @@ body.menu-open {
 .circle-content::before {
     content: "";
     position: absolute;
-    inset: 0 6px;
+    inset: 0;
     background-image: url("../images/gold-medal.webp");
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     z-index: 0;
-    background-size: cover;
 }
 
-.circle-content > * {
+.circle-content>* {
     position: relative;
     z-index: 1;
+    min-width: 0;
+    max-width: 100%;
 }
 
 .merit-main {
     display: block;
-    font-size: clamp(0.5rem, 2.4vw, 0.8rem);
+    font-size: clamp(0.5rem, 7cqi, 0.72rem);
     opacity: 0.9;
+    margin-top: -3%;
 }
 
 .merit-price {
     display: block;
-    font-size: clamp(0.4rem, 2.5vw, 1.1rem);
-    margin: clamp(2px, 0.5vw, 4px) 0;
+    font-size: clamp(0.6rem, 8cqi, 0.9rem);
+    margin: clamp(1px, 0.8cqi, 3px) 0;
     color: #ff0000;
 }
 
-.merit-sub {
-    display: block;
-    font-size: clamp(0.3rem, 1.5vw, 0.65rem);
-    opacity: 0.8;
-    margin-top: 2px;
-    line-height: 1.2;
-}
-
-@container (max-width: 68px) {
-    .circle-content {
-        padding: 3px 2px;
-    }
-
-    .merit-main {
-        font-size: 0.48rem;
-    }
-
-    .merit-price {
-        font-size: 0.52rem;
-        margin: 1px 0;
-    }
-
-    .merit-sub {
-        font-size: 0.4rem;
-    }
-}
 
 /* Hero Service Introduction */
 .hero__service-intro {
@@ -714,7 +703,7 @@ body.menu-open {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px 8px;
-    margin:0 auto;
+    margin: 0 auto;
     max-width: 400px;
 }
 
@@ -843,9 +832,9 @@ body.menu-open {
 
 .section--map {
     background:
-    radial-gradient(135% 120% at 8% 0%, rgba(178, 12, 28, 0.34) 0%, rgba(178, 12, 28, 0) 52%),
-    radial-gradient(128% 112% at 100% 100%, rgba(206, 213, 223, 0.24) 0%, rgba(206, 213, 223, 0) 60%),
-    linear-gradient(150deg, #08090d 0%, #151821 48%, #22090f 100%);
+        radial-gradient(135% 120% at 8% 0%, rgba(178, 12, 28, 0.34) 0%, rgba(178, 12, 28, 0) 52%),
+        radial-gradient(128% 112% at 100% 100%, rgba(206, 213, 223, 0.24) 0%, rgba(206, 213, 223, 0) 60%),
+        linear-gradient(150deg, #08090d 0%, #151821 48%, #22090f 100%);
 }
 
 .section--dark.voices {
