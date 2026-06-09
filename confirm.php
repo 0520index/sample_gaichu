@@ -18,6 +18,16 @@ try {
     $type = $_POST['type'] ?? '';
     $preferred_datetime = trim($_POST['preferred_datetime'] ?? '');
     $message = trim($_POST['message'] ?? '');
+        $honeypot = trim($_POST['hp_field'] ?? '');
+    $human_token = trim($_POST['human_token'] ?? '');
+
+    if (!empty($honeypot)) {
+        exit('スパムと判断されたため、送信を受け付けませんでした。');
+    }
+
+    if ($human_token !== 'verified') {
+        exit('JavaScriptを有効にして、再度送信してください。');
+    }
 
     if (empty($name) || empty($tel) || empty($mail) || empty($zip) || empty($address)) {
         exit('必須項目が入力されていません。戻って入力してください。');

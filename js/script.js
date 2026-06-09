@@ -313,3 +313,35 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 });
+
+
+/**
+ * スパムボット検知用の非表示フィールドを全フォームに自動追加
+ */
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('form.contact-form').forEach(form => {
+        if (form.querySelector('input[name="human_token"]')) {
+            return;
+        }
+
+        const honeypot = document.createElement('input');
+        honeypot.type = 'text';
+        honeypot.name = 'hp_field';
+        honeypot.value = '';
+        honeypot.autocomplete = 'off';
+        honeypot.tabIndex = -1;
+        honeypot.setAttribute('aria-hidden', 'true');
+        honeypot.style.position = 'absolute';
+        honeypot.style.left = '-9999px';
+        honeypot.style.width = '1px';
+        honeypot.style.height = '1px';
+        honeypot.style.overflow = 'hidden';
+        form.appendChild(honeypot);
+
+        const humanToken = document.createElement('input');
+        humanToken.type = 'hidden';
+        humanToken.name = 'human_token';
+        humanToken.value = 'verified';
+        form.appendChild(humanToken);
+    });
+});
