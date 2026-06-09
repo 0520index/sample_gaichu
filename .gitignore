@@ -1,0 +1,2 @@
+# Ignore database credential files
+/db_config.php

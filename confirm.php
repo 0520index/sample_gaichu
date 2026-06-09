@@ -1,8 +1,5 @@
 <?php
-$host     = 'mysql80.ez-tech.sakura.ne.jp'; // サーバー
-$dbname   = 'ez-tech_contact_db';       // データベース
-$user     = 'ez-tech_contact_db';               //ユーザ
-$password = 'AdEkGJw6';       // 接続
+require_once __DIR__ . '/../db_config.php';
 
 try {
     $dsn = "mysql:host={$host};dbname={$dbname};charset=utf8mb4";
