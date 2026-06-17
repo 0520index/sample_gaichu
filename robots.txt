@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rescue-samurai.com/sitemap.xml
+Sitemap: https://gaichu-rescue-samurai.com/sitemap.xml
