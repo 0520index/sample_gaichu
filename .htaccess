@@ -1,0 +1,48 @@
+# ----------------------------------------------------------------------
+# 1. 基本設定（SSL化 & URLの正規化）
+# ----------------------------------------------------------------------
+RewriteEngine On
+RewriteBase /
+
+# MultiViewsをオフにする（拡張子なしアクセスとの干渉を防ぐ）
+Options -MultiViews
+
+# httpをhttpsに強制リダイレクト
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# index.htmlをURLから消して / に統一
+RewriteCond %{REQUEST_URI} ^(.*)/index\.html$
+RewriteRule ^(.*)index\.html$ https://%{HTTP_HOST}%1/ [R=301,L]
+
+# ----------------------------------------------------------------------
+# 3. ブラウザキャッシュ (Expires Headers)
+# ----------------------------------------------------------------------
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 1 month"
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 4. Gzip圧縮
+# ----------------------------------------------------------------------
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+</IfModule>
+
+# ----------------------------------------------------------------------
+# 5. セキュリティ
+# ----------------------------------------------------------------------
+<IfModule mod_headers.c>
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set X-Content-Type-Options "nosniff"
+</IfModule>

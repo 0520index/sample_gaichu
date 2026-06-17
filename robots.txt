@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# フォーム送信処理（検索結果に出す必要がない）
+Disallow: /confirm.php
+
 Sitemap: https://gaichu-rescue-samurai.com/sitemap.xml
