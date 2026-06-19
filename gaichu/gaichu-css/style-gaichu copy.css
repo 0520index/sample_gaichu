@@ -1,0 +1,462 @@
+/* --------------------------------------------------------------------------
+   Symptom Cards
+   -------------------------------------------------------------------------- */
+.symptom-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.card {
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border: 1px solid #e8ecf1;
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(26, 31, 38, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(26, 31, 38, 0.12);
+}
+
+.card h3 {
+    margin-top: 0;
+    color: var(--brand);
+    border-bottom: 2px solid var(--brand-soft);
+    padding-bottom: 8px;
+}
+
+.card ul {
+    margin: 0;
+    padding-left: 0;
+}
+
+.card li {
+    list-style: none;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    font-size: 0.95rem;
+    position: relative;
+}
+
+.card li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--brand);
+}
+
+/* --------------------------------------------------------------------------
+   Cockroach Types
+   -------------------------------------------------------------------------- */
+.cockroach-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.type-item {
+    background: var(--surface);
+    border: 2px solid var(--brand-soft);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(26, 31, 38, 0.06);
+}
+
+.type-item h3 {
+    color: var(--brand);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.type-description {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+    font-style: italic;
+}
+
+.type-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.type-item li {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    padding-left: 0;
+    line-height: 1.4;
+}
+
+.type-item li::before {
+    content: "";
+    display: none;
+}
+
+.type-item strong {
+    color: var(--text);
+    font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   Prevention Grid
+   -------------------------------------------------------------------------- */
+.prevention-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+.prevention-item {
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-left: 4px solid var(--teal);
+    border-radius: var(--radius);
+    padding: 18px;
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.08);
+}
+
+.prevention-item h3 {
+    color: var(--teal);
+    margin-top: 0;
+    font-size: 1.05rem;
+}
+
+.prevention-item ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.prevention-item li {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    padding-left: 18px;
+    position: relative;
+    color: var(--text);
+}
+
+.prevention-item li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: bold;
+}
+
+/* --------------------------------------------------------------------------
+   DIY Methods
+   -------------------------------------------------------------------------- */
+.diy-methods {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.method {
+    background: var(--accent-gold-soft);
+    border-left: 4px solid var(--accent-gold);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(212, 160, 18, 0.08);
+}
+
+.method h3 {
+    color: var(--accent-gold);
+    margin-top: 0;
+    font-size: 1.1rem;
+}
+
+.method p {
+    margin: 10px 0;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.method strong {
+    color: var(--text);
+    font-weight: 700;
+}
+
+.method ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 0;
+}
+
+.method li {
+    margin-bottom: 8px;
+    padding-left: 20px;
+    position: relative;
+    font-size: 0.95rem;
+    color: var(--text);
+}
+
+.method li::before {
+    content: "◆";
+    position: absolute;
+    left: 0;
+    color: var(--accent-gold);
+    font-size: 0.7rem;
+    top: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Important Note
+   -------------------------------------------------------------------------- */
+.important-note {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border: 2px solid var(--brand);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin: 24px 0;
+    box-shadow: 0 4px 16px rgba(185, 28, 28, 0.12);
+}
+
+.important-note strong {
+    color: var(--brand);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.important-note {
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------------
+   Call Professional Section
+   -------------------------------------------------------------------------- */
+.call-professional {
+    background: linear-gradient(135deg, #f5f3ff 0%, #ede9fe 100%);
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    margin-bottom: 28px;
+    border: 1px solid #e9d5ff;
+}
+
+.call-professional p {
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 16px;
+    font-size: 0.95rem;
+}
+
+.call-professional ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.call-professional li {
+    margin-bottom: 12px;
+    padding-left: 0;
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.call-professional li::before {
+    content: "";
+    display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Professional Benefits
+   -------------------------------------------------------------------------- */
+.professional-benefits {
+    margin-bottom: 28px;
+}
+
+.professional-benefits h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+}
+
+.benefit {
+    background: linear-gradient(135deg, var(--line-green-dark), var(--line-green));
+    color: #fff;
+    border-radius: var(--radius-lg);
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 16px rgba(6, 179, 80, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.benefit:hover {
+    transform: translateY(-4px);
+}
+
+.benefit-title {
+    display: block;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.benefit p {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   FAQ Items
+   -------------------------------------------------------------------------- */
+.faq-items {
+    display: grid;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.faq-item {
+    background: var(--surface);
+    border: 1px solid #e8ecf1;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(26, 31, 38, 0.06);
+    transition: box-shadow 0.3s ease;
+}
+
+.faq-item[open] {
+    box-shadow: 0 4px 16px rgba(26, 31, 38, 0.12);
+}
+
+.faq-item summary {
+    cursor: pointer;
+    padding: 16px 20px;
+    font-weight: 700;
+    color: var(--brand);
+    background: var(--brand-soft);
+    user-select: none;
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.faq-item summary::before {
+    content: "▶";
+    display: inline-block;
+    transition: transform 0.3s ease;
+    font-size: 0.75rem;
+}
+
+.faq-item[open] summary::before {
+    transform: rotate(90deg);
+}
+
+.faq-item summary:hover {
+    background-color: #fee2e2;
+}
+
+.faq-content {
+    padding: 20px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    background: var(--surface);
+}
+
+.faq-content p {
+    margin: 0 0 12px;
+}
+
+.faq-content ol,
+.faq-content ul {
+    margin: 10px 0;
+    padding-left: 20px;
+}
+
+.faq-content li {
+    margin-bottom: 8px;
+    padding-left: 0;
+}
+
+.faq-content li::before {
+    content: "";
+    display: none;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 600px) {
+
+    .symptom-cards,
+    .cockroach-types,
+    .prevention-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card,
+    .type-item {
+        padding: 16px;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .faq-item summary {
+        padding: 14px 16px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 420px) {
+
+    .card,
+    .type-item,
+    .method {
+        padding: 14px;
+    }
+
+    .prevention-item {
+        padding: 14px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Utility Classes
+   -------------------------------------------------------------------------- */
+.pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Print styles */
+@media print {
+
+    .menu-btn,
+    .nav-overlay,
+    .sp-nav,
+    .hero__cta {
+        display: none;
+    }
+
+    .content-section {
+        padding: 16px;
+    }
+}
