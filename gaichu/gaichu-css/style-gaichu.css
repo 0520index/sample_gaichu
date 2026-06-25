@@ -84,22 +84,6 @@ h3 {
     padding-top: 24px;
 }
 
-.gaichu__hero__cta {
-    margin: 16px;
-}
-
-.btn--primary {
-    background: rgb(220, 38, 38);
-    box-shadow: 0 10px 28px rgba(185, 28, 28, 0.28);
-}
-
-.btn--line {
-    margin-top: 12px;
-    background: rgb(6, 179, 81);
-    border: 1px solid rgba(6, 179, 80, 0.3);
-    color: #fff;
-}
-
 /* --------------------------------------------------------------------------
    Symptom Cards
    -------------------------------------------------------------------------- */
