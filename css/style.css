@@ -494,7 +494,7 @@ body.menu-open {
     /* padding-left: 28px; */
     font-weight: 900;
     letter-spacing: 0.02em;
-    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    font-size: 1.7rem;
     line-height: 1.05;
     text-align: center;
     color: #fff;
@@ -533,9 +533,9 @@ body.menu-open {
     }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 410px) {
     .hero-title {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
         margin-left: -75px;
     }
 }
@@ -543,7 +543,7 @@ body.menu-open {
 @media (max-width: 375px) {
     .hero-title {
         margin-left: -65px;
-        font-size: 1.5rem;
+        font-size: 1.4rem;
     }
 }
 
