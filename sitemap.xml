@@ -1,55 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 
-<!--  created with free sitemap generation system www.sitemapxml.jp  --> 
-<url>
-  <loc>https://gaichu-rescue-samurai.com/</loc>
-  <priority>1.0</priority>
-  <lastmod>2026-07-08T14:04:23+09:00</lastmod>
-</url>
-<url>
-  <loc>https://gaichu-rescue-samurai.com/area/tokyo/</loc>
-  <priority>0.8</priority>
-  <lastmod>2026-07-08T14:04:35+09:00</lastmod>
-</url>
-<url>
-  <loc>https://gaichu-rescue-samurai.com/area/kanagawa/</loc>
-  <priority>0.8</priority>
-  <lastmod>2026-07-08T14:04:34+09:00</lastmod>
-</url>
-<url>
-  <loc>https://gaichu-rescue-samurai.com/area/saitama/</loc>
-  <priority>0.8</priority>
-  <lastmod>2026-07-08T14:04:35+09:00</lastmod>
-</url>
-<url>
-  <loc>https://gaichu-rescue-samurai.com/area/chiba/</loc>
-  <priority>0.8</priority>
-  <lastmod>2026-07-08T14:04:34+09:00</lastmod>
-</url>
-<url>
-  <loc>https://gaichu-rescue-samurai.com/gaichu/gokiburi/</loc>
-  <priority>0.8</priority>
-  <lastmod>2026-07-08T14:04:40+09:00</lastmod>
-</url>
-<url>
-  <loc>https://gaichu-rescue-samurai.com/gaichu/tokojirami/</loc>
-  <priority>0.8</priority>
-  <lastmod>2026-07-08T14:04:41+09:00</lastmod>
-</url>
-<url>
-  <loc>https://gaichu-rescue-samurai.com/gaichu/hae/</loc>
-  <priority>0.8</priority>
-  <lastmod>2026-07-08T14:04:41+09:00</lastmod>
-</url>
-<url>
-  <loc>https://gaichu-rescue-samurai.com/privacy/index.html</loc>
-  <priority>0.8</priority>
-</url>
-<url>
-  <loc>https://gaichu-rescue-samurai.com/privacy/</loc>
-  <priority>0.7</priority>
-  <lastmod>2026-07-08T14:06:24+09:00</lastmod>
-</url>
+  <!--  created with free sitemap generation system www.sitemapxml.jp  -->
+  <url>
+    <loc>https://gaichu-rescue-samurai.com/</loc>
+    <priority>1.0</priority>
+    <lastmod>2026-07-08T14:04:23+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://gaichu-rescue-samurai.com/area/tokyo/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-07-08T14:04:35+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://gaichu-rescue-samurai.com/area/kanagawa/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-07-08T14:04:34+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://gaichu-rescue-samurai.com/area/saitama/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-07-08T14:04:35+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://gaichu-rescue-samurai.com/area/chiba/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-07-08T14:04:34+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://gaichu-rescue-samurai.com/gaichu/gokiburi/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-07-08T14:04:40+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://gaichu-rescue-samurai.com/gaichu/tokojirami/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-07-08T14:04:41+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://gaichu-rescue-samurai.com/gaichu/hae/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-07-08T14:04:41+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://gaichu-rescue-samurai.com/privacy/</loc>
+    <priority>0.8</priority>
+    <lastmod>2026-07-08T14:06:24+09:00</lastmod>
+  </url>
 
 </urlset>
