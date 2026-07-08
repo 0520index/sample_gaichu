@@ -1720,7 +1720,8 @@ h2.title-risk {
     font-size: 1rem;
 }
 
-.area-pests {
+.area-pests,
+.area-list {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -1729,15 +1730,16 @@ h2.title-risk {
     gap: 8px;
 }
 
-.area-pests li {
+.area-pests li,
+.area-list li {
     display: inline-block;
     padding: 6px 12px;
     font-size: 0.82rem;
     font-weight: 700;
     line-height: 1.4;
     border-radius: 6px;
-    background: var(--brand-soft);
-    color: var(--brand-dark);
+    background: rgba(169, 198, 231, 0.18);
+    color: #f0dfba;
 }
 
 .area-map .section__title {
