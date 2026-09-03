@@ -2575,7 +2575,7 @@ h2.title-risk {
     /* Footer adjustments for desktop */
     .site-footer {
         padding: 40px 35px 25px;
-        flex-direction: row;
+        /* flex-direction: row; */
         justify-content: space-between;
         align-items: center;
         text-align: left;
