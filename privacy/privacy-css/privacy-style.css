@@ -171,6 +171,12 @@ body {
     padding: 4px 8px;
     font-size: 10px;
     align-self: center;
+    line-height: 1.7;
+}
+
+.operation-box a {
+    color: #ccc;
+    text-decoration: underline;
 }
 
 .copyright {
