@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /lp/
 
 # フォーム送信処理（検索結果に出す必要がない）
 Disallow: /confirm.php
