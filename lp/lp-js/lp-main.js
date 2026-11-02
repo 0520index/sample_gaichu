@@ -49,17 +49,32 @@ document.querySelectorAll('.faq-question').forEach(q => {
   });
 });
 
-// Form submit handler
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.btn-submit');
-  btn.textContent = '送信中...';
-  btn.disabled = true;
-  setTimeout(() => {
-    btn.textContent = '✅ 送信完了！担当者より折り返しご連絡いたします。';
-    btn.style.background = '#1a8a4a';
-  }, 1200);
-}
+// トップと同じ送信先（confirm.php）が要求する判定用フィールド
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('form[action="/confirm.php"]').forEach(form => {
+    if (form.querySelector('input[name="human_token"]')) return;
+
+    const honeypot = document.createElement('input');
+    honeypot.type = 'text';
+    honeypot.name = 'hp_field';
+    honeypot.value = '';
+    honeypot.autocomplete = 'off';
+    honeypot.tabIndex = -1;
+    honeypot.setAttribute('aria-hidden', 'true');
+    honeypot.style.position = 'absolute';
+    honeypot.style.left = '-9999px';
+    honeypot.style.width = '1px';
+    honeypot.style.height = '1px';
+    honeypot.style.overflow = 'hidden';
+    form.appendChild(honeypot);
+
+    const humanToken = document.createElement('input');
+    humanToken.type = 'hidden';
+    humanToken.name = 'human_token';
+    humanToken.value = 'verified';
+    form.appendChild(humanToken);
+  });
+});
 
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(a => {

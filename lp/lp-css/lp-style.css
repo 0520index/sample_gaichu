@@ -1046,6 +1046,24 @@ body.menu-open .floating-cta {
     margin-left: 5px;
 }
 
+.zip-note {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 2px 0 6px;
+    opacity: .85;
+}
+
+.privacy-text {
+    margin: 10px 0 0;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.privacy-text a {
+    text-decoration: underline;
+}
+
 .form-group input,
 .form-group select,
 .form-group textarea {

@@ -22,7 +22,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Kaku+Gothic+New:wght@700;900&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="lp-css/lp-style.css?v=5.4.0">
+  <link rel="stylesheet" href="lp-css/lp-style.css?v=5.4.1">
   <link rel="icon" href="lp-img/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" href="lp-img/android-chrome-192×192.png" sizes="192x192">
   <link rel="apple-touch-icon" href="lp-img/apple-touch-icon.png" sizes="180x180">
@@ -407,39 +407,45 @@
         </div>
         <div class="contact-form">
           <h3>✉ メールでのお問い合わせ</h3>
-          <form action="/confirm.php" method="post" onsubmit="handleSubmit(event)">
+          <form action="/confirm.php" method="post" class="h-adr">
+            <span class="p-country-name" style="display:none;">Japan</span>
             <div class="form-group">
-              <label>お名前 <span class="required">必須</span></label>
-              <input type="text" name="name" placeholder="例：山田 太郎" required>
+              <label for="name">お名前 <span class="required">必須</span></label>
+              <input type="text" id="name" name="name" placeholder="例：害虫 太郎" required>
             </div>
             <div class="form-group">
-              <label>お電話番号 <span class="required">必須</span></label>
-              <input type="tel" name="tel" placeholder="例：090-1234-5678" required>
+              <label for="tel">お電話番号 <span class="required">必須</span></label>
+              <input id="tel" type="tel" pattern="\d{2,4}-?\d{2,4}-?\d{3,4}" name="tel" placeholder="例：090-1234-5678"
+                required>
             </div>
             <div class="form-group">
-              <label>メールアドレス <span class="required">必須</span></label>
-              <input type="email" name="email" placeholder="例：info@example.com" required>
+              <label for="email">メールアドレス <span class="required">必須</span></label>
+              <input id="email" type="email" name="email" placeholder="例：abcdef123@example.com" required>
             </div>
             <div class="form-group">
-              <label>ご住所・エリア</label>
-              <input type="text" name="address" placeholder="例：東京都新宿区">
+              <label>郵便番号<span class="required">必須</span></label>
+              <span class="zip-note">※入力すると住所を自動で補完します</span>
+              <input type="tel" name="zip" class="p-postal-code" size="8" maxlength="8" placeholder="123-4567" required>
             </div>
             <div class="form-group">
-              <label>お困りの状況</label>
-              <select name="pest_type">
-                <option value="">選択してください</option>
-                <option>キッチンで何度も見かける</option>
-                <option>小さなゴキブリが出る</option>
-                <option>駆除してもまた出てくる</option>
-                <option>どこに隠れているかわからない</option>
-                <option>その他・わからない</option>
-              </select>
+              <label>都道府県<span class="required">必須</span></label>
+              <input type="text" name="pref" class="p-region" placeholder="東京都" required>
             </div>
             <div class="form-group">
-              <label>お困りごと</label>
+              <label>市区町村・番地<span class="required">必須</span></label>
+              <input type="text" name="addr" class="p-locality p-street-address p-extended-address"
+                placeholder="千代田区麹町1-2-3" required>
+            </div>
+            <div class="form-group">
+              <label for="preferred_datetime">希望日時</label>
+              <input type="text" id="preferred_datetime" name="preferred_datetime" placeholder="○月○日、午後、平日18時以降 など">
+            </div>
+            <div class="form-group">
+              <label>備考（任意）</label>
               <textarea name="message" placeholder="例：キッチンでゴキブリを何度も見かける／スプレーしてもまた出てくる など"></textarea>
             </div>
             <button type="submit" class="btn-submit">入力した内容を送信する</button>
+            <p class="privacy-text">※送信により<a href="/privacy/index.html">プライバシーポリシー</a>に同意したことになります。</p>
           </form>
         </div>
       </div>
@@ -467,7 +473,8 @@
     </div>
   </footer>
 
-  <script src="lp-js/lp-main.js?v=1.0.2"></script>
+  <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
+  <script src="lp-js/lp-main.js?v=1.0.3"></script>
 </body>
 
 </html>
