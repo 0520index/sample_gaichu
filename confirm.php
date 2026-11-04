@@ -89,6 +89,24 @@ try {
 担当者よりご連絡いたしますので、少々お待ちいただけますと幸いです。</p>";
     echo "<a href='index.html'>トップページに戻る</a>";
 
+// --- Google Tag Manager ---
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-P7HW3BTK');
+  </script>
+// --- End Google Tag Manager ---
+
+// --- Google Tag Manager (noscript) ---
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7HW3BTK" height="0" width="0"
+      style="display:none;visibility:hidden">
+    </iframe></noscript>
+// --- End Google Tag Manager (noscript) ---
+
 } catch (PDOException $e) {
     exit('エラーが発生しました：' . $e->getMessage());
 }

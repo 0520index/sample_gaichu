@@ -89,7 +89,7 @@ try {
 担当者よりご連絡いたしますので、少々お待ちいただけますと幸いです。</p>";
     echo "<a href='lp/index.html'>トップページに戻る</a>";
 
- // --- Google Tag Manager ---
+// --- Google Tag Manager ---
   <script>(function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
         'gtm.start':
