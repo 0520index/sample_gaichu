@@ -15,7 +15,7 @@ try {
     $type = $_POST['type'] ?? '';
     $preferred_datetime = trim($_POST['preferred_datetime'] ?? '');
     $message = trim($_POST['message'] ?? '');
-        $honeypot = trim($_POST['hp_field'] ?? '');
+    $honeypot = trim($_POST['hp_field'] ?? '');
     $human_token = trim($_POST['human_token'] ?? '');
 
     if (!empty($honeypot)) {
@@ -34,7 +34,7 @@ try {
         exit('メールアドレスの形式が正しくありません。');
     }
 
-    $sql = "INSERT INTO contact_data (name, tel, mail, zip, address, bird_type, preferred_datetime, message) 
+    $sql = "INSERT INTO contact_data (name, tel, mail, zip, address, bird_type, preferred_datetime, message)
             VALUES (:name, :tel, :mail, :zip, :address, :type, :preferred_datetime, :message)";
     
     $stmt = $pdo->prepare($sql);
@@ -81,15 +81,17 @@ try {
     $header_user .= "X-Mailer: PHP/" . phpversion();
 
     mb_send_mail($mail, $subject_user, $body_user, $header_user, $additional_params);
-
-    // --- ここまで ---
-
-    echo "<h1>送信完了</h1>";
-    echo "<p>お問い合わせいただきありがとうございます。
-担当者よりご連絡いたしますので、少々お待ちいただけますと幸いです。</p>";
-    echo "<a href='index.html'>トップページに戻る</a>";
-
-// --- Google Tag Manager ---
+} catch (PDOException $e) {
+    exit('エラーが発生しました：' . $e->getMessage());
+}
+?>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>送信完了｜害虫レスキュー侍</title>
+  <!-- Google Tag Manager -->
   <script>(function (w, d, s, l, i) {
       w[l] = w[l] || []; w[l].push({
         'gtm.start':
@@ -99,15 +101,17 @@ try {
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-P7HW3BTK');
   </script>
-// --- End Google Tag Manager ---
+  <!-- End Google Tag Manager -->
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7HW3BTK" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
 
-// --- Google Tag Manager (noscript) ---
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P7HW3BTK" height="0" width="0"
-      style="display:none;visibility:hidden">
-    </iframe></noscript>
-// --- End Google Tag Manager (noscript) ---
-
-} catch (PDOException $e) {
-    exit('エラーが発生しました：' . $e->getMessage());
-}
-?>
+  <h1>送信完了</h1>
+  <p>お問い合わせいただきありがとうございます。<br>
+    担当者よりご連絡いたしますので、少々お待ちいただけますと幸いです。</p>
+  <p><a href="index.html">トップページに戻る</a></p>
+</body>
+</html>

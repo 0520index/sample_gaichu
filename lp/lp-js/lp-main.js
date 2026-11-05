@@ -49,9 +49,9 @@ document.querySelectorAll('.faq-question').forEach(q => {
   });
 });
 
-// トップと同じ送信先（confirm.php）が要求する判定用フィールド
+// confirm.php / lp-confirm.php が要求する判定用フィールド
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('form[action="/confirm.php"]').forEach(form => {
+  document.querySelectorAll('form[action*="confirm.php"]').forEach(form => {
     if (form.querySelector('input[name="human_token"]')) return;
 
     const honeypot = document.createElement('input');
