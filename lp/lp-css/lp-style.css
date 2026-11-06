@@ -533,7 +533,7 @@ body.menu-open .floating-cta {
     padding: 16px 16px 14px;
     text-align: center;
     color: #fff;
-    background: linear-gradient(180deg, #000000 0%, #a9a9a9 100%);
+    background: linear-gradient(180deg, #0a3d7a 0%, #062a54 100%);
     border: 3px solid var(--yellow);
     border-radius: 14px;
     box-shadow: 0 6px 18px rgba(6, 42, 84, 0.16);
@@ -547,7 +547,7 @@ body.menu-open .floating-cta {
 }
 
 .ad-band--alert {
-    background: linear-gradient(180deg, #0a3d7a 0%, #062a54 100%);
+    background: linear-gradient(180deg, #000000 0%, #a9a9a9 100%);
     border: 3px solid var(--yellow);
 }
 
