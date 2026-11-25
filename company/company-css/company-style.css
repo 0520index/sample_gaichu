@@ -314,6 +314,39 @@ body {
     color: var(--text-muted);
 }
 
+.company-access-address {
+    margin: 0 0 16px !important;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text) !important;
+    line-height: 1.7;
+}
+
+.company-map {
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #f7f8fa;
+    aspect-ratio: 4 / 3;
+}
+
+.company-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.company-map-link {
+    margin: 12px 0 0 !important;
+    font-size: 0.9rem !important;
+}
+
+#access,
+#message {
+    scroll-margin-top: calc(var(--site-header-height) + 12px);
+}
+
 .company-table-wrap {
     overflow-x: auto;
     border: 1px solid var(--line);
