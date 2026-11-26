@@ -1877,6 +1877,50 @@ body.menu-open .floating-cta {
     box-shadow: 0 1px 0 #7a0c10, 0 0 0 2px var(--red);
 }
 
+/* ACCESS / Google Map */
+.access .section-inner {
+    max-width: var(--lp-width, 720px);
+    margin: 0 auto;
+}
+
+.access__address {
+    margin: 0 0 18px;
+    text-align: center;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.75;
+    color: var(--dark-blue, #003366);
+}
+
+.access-map {
+    overflow: hidden;
+    border: 1px solid rgba(0, 51, 102, 0.15);
+    border-radius: 12px;
+    background: #f5f7fa;
+    aspect-ratio: 4 / 3;
+    box-shadow: 0 6px 20px rgba(0, 40, 79, 0.1);
+}
+
+.access-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.access-map__link {
+    margin: 14px 0 0;
+    text-align: center;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.access-map__link a {
+    color: var(--red, #c41216);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 /* FOOTER */
 
 .site-footer {
